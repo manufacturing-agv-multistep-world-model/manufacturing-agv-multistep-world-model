@@ -1,0 +1,118 @@
+{
+  "protocol": "v147b_r1_recovery_synchronized_4h_development_v2",
+  "model_variant": "V14.7b-R1",
+  "phase": "horizon_isolated_development",
+  "hours": 4.0,
+  "environment_seeds": [
+    16001,
+    16002,
+    16003,
+    16004,
+    16005
+  ],
+  "model_seeds": [
+    42,
+    43,
+    44
+  ],
+  "checkpoint_sha256": {
+    "42": "a8d894fccd94fd63090b4a81e196cbe246f9032dededa932a7fe4968bfe14b3a",
+    "43": "ffcee1b230c34ef7680d4871792ddf05d5456a60e3b3c1a721573ff3a3950c56",
+    "44": "fa50ac594622f84abc19211f3d70930b148549a37410d9f2d10c2c5c6f69925f"
+  },
+  "environment_source_sha256": "24c6e278a9bf71f4bd635261591984a3954c1d9e7cfcf9d6959d9a01e3abd72b",
+  "runner_source_sha256": "463338b930342b6b07b9328863d303a911ed3f5471895963c0a9784e17fc82ac",
+  "model_parameters_updated": false,
+  "authority_limits": {
+    "unanimous_models_required": 3,
+    "prediction_and_cooldown_horizon_sec": 720.0,
+    "utility_margin": 0.15,
+    "maximum_joint_action_hamming_distance": 3,
+    "maximum_overrides_per_run": 8,
+    "deadlock_recovery_takeover_prohibited": true,
+    "hard_safety_guard_enabled_for_both_methods": true
+  },
+  "total_accepted_overrides": 5,
+  "total_controller_decisions": 12533,
+  "accepted_override_rate": 0.00039894678049948136,
+  "mean_route_blocked_time_baseline_sec": 23252.27333333327,
+  "mean_route_blocked_time_v147_sec": 23258.60999999994,
+  "method_means": {
+    "Guarded DT-aware baseline": {
+      "uph": 13.196228389819032,
+      "energy_efficiency_wh_per_sku": 1031.2819551057235,
+      "avg_task_wait_time": 2996.380927421736,
+      "conflict_count": 6268.0,
+      "blocking_onset_count": 169.4,
+      "route_blocking_onset_count": 169.4,
+      "route_blocked_time_sec": 23252.27333333327,
+      "deadlock_count": 105.6,
+      "empty_running_ratio": 0.5227246920797327,
+      "p95_decision_compute_sec": 0.0002937229926465079
+    },
+    "V14.7b-R1 horizon-isolated world model": {
+      "uph": 13.192243540645757,
+      "energy_efficiency_wh_per_sku": 1031.2712052463407,
+      "avg_task_wait_time": 3000.890686969119,
+      "conflict_count": 6271.0,
+      "blocking_onset_count": 172.4,
+      "route_blocking_onset_count": 172.4,
+      "route_blocked_time_sec": 23258.60999999994,
+      "deadlock_count": 105.4,
+      "empty_running_ratio": 0.5227613001194855,
+      "p95_decision_compute_sec": 0.0011345699991215951
+    }
+  },
+  "criteria": [
+    {
+      "criterion": "Every paired run reaches the 4-hour physical horizon",
+      "passed": true
+    },
+    {
+      "criterion": "Every policy pair receives an identical exogenous task stream",
+      "passed": true
+    },
+    {
+      "criterion": "Every paired method completes at least one task so EER is identifiable",
+      "passed": true
+    },
+    {
+      "criterion": "No V14.7b-R1 run has an out-of-battery event or timeout",
+      "passed": true
+    },
+    {
+      "criterion": "V14.7b-R1 introduces no additional deadlocks in any paired run",
+      "passed": true
+    },
+    {
+      "criterion": "Mean physical route-blocked time is no more than 101% of the guarded baseline",
+      "passed": true
+    },
+    {
+      "criterion": "Mean conflict events are no more than 105% of the guarded baseline",
+      "passed": true
+    },
+    {
+      "criterion": "V14.7b-R1 UPH is at least 95% of the guarded baseline in every run",
+      "passed": true
+    },
+    {
+      "criterion": "V14.7b-R1 EER is no more than 105% of the guarded baseline in every run",
+      "passed": true
+    },
+    {
+      "criterion": "At least three isolated overrides execute and total authority remains below 5%",
+      "passed": true
+    },
+    {
+      "criterion": "Every run respects the 8-override authority budget",
+      "passed": true
+    },
+    {
+      "criterion": "Mean V14.7b-R1 P95 decision time is at most 2 seconds",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "claim_status": "development_only_no_confirmatory_claim"
+}

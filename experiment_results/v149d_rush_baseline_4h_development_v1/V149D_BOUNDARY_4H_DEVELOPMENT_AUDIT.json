@@ -1,0 +1,121 @@
+{
+  "protocol": "v149_rush_arrival_baseline_capacity_4h_development_v1",
+  "model_variant": "V14.9-D",
+  "phase": "horizon_isolated_development",
+  "hours": 4.0,
+  "scenario": "rush",
+  "capacity_mode": "baseline",
+  "minimum_completed_tasks": 20,
+  "environment_seeds": [
+    18001,
+    18002,
+    18003,
+    18004,
+    18005
+  ],
+  "model_seeds": [
+    42,
+    43,
+    44
+  ],
+  "checkpoint_sha256": {
+    "42": "a8d894fccd94fd63090b4a81e196cbe246f9032dededa932a7fe4968bfe14b3a",
+    "43": "ffcee1b230c34ef7680d4871792ddf05d5456a60e3b3c1a721573ff3a3950c56",
+    "44": "fa50ac594622f84abc19211f3d70930b148549a37410d9f2d10c2c5c6f69925f"
+  },
+  "environment_source_sha256": "24c6e278a9bf71f4bd635261591984a3954c1d9e7cfcf9d6959d9a01e3abd72b",
+  "runner_source_sha256": "5f7327d4f34ba02867991cbd9a99f0f4b33b2a077aa4d330a4e6145ad654014c",
+  "model_parameters_updated": false,
+  "authority_limits": {
+    "unanimous_models_required": 3,
+    "prediction_and_cooldown_horizon_sec": 720.0,
+    "utility_margin": 0.15,
+    "maximum_joint_action_hamming_distance": 3,
+    "maximum_overrides_per_run": 8,
+    "deadlock_recovery_takeover_prohibited": true,
+    "hard_safety_guard_enabled_for_both_methods": true
+  },
+  "total_accepted_overrides": 2,
+  "total_controller_decisions": 6864,
+  "accepted_override_rate": 0.0002913752913752914,
+  "mean_route_blocked_time_baseline_sec": 153.05333333333337,
+  "mean_route_blocked_time_v147_sec": 153.92000000000002,
+  "method_means": {
+    "Guarded DT-aware baseline": {
+      "uph": 43.266231322584034,
+      "energy_efficiency_wh_per_sku": 45.07748075195303,
+      "avg_task_wait_time": 2583.6853150181814,
+      "conflict_count": 733.6,
+      "blocking_onset_count": 9.6,
+      "route_blocking_onset_count": 8.6,
+      "route_blocked_time_sec": 153.05333333333337,
+      "deadlock_count": 0.0,
+      "empty_running_ratio": 0.2586635077891069,
+      "p95_decision_compute_sec": 0.0003171989959082566
+    },
+    "V14.9-D horizon-isolated world model": {
+      "uph": 43.25779809665252,
+      "energy_efficiency_wh_per_sku": 45.06448874011871,
+      "avg_task_wait_time": 2577.173188249458,
+      "conflict_count": 733.6,
+      "blocking_onset_count": 9.6,
+      "route_blocking_onset_count": 8.6,
+      "route_blocked_time_sec": 153.92000000000002,
+      "deadlock_count": 0.0,
+      "empty_running_ratio": 0.25863707615551046,
+      "p95_decision_compute_sec": 0.021259491000673734
+    }
+  },
+  "criteria": [
+    {
+      "criterion": "Every paired run reaches the 4-hour physical horizon",
+      "passed": true
+    },
+    {
+      "criterion": "Every policy pair receives an identical exogenous task stream",
+      "passed": true
+    },
+    {
+      "criterion": "Every paired method completes at least 20 tasks so operational KPIs are identifiable",
+      "passed": true
+    },
+    {
+      "criterion": "No V14.9-D run has an out-of-battery event or timeout",
+      "passed": true
+    },
+    {
+      "criterion": "V14.9-D introduces no additional deadlocks in any paired run",
+      "passed": true
+    },
+    {
+      "criterion": "Mean physical route-blocked time is no more than 101% of the guarded baseline",
+      "passed": true
+    },
+    {
+      "criterion": "Mean conflict events are no more than 105% of the guarded baseline",
+      "passed": true
+    },
+    {
+      "criterion": "V14.9-D UPH is at least 95% of the guarded baseline in every run",
+      "passed": true
+    },
+    {
+      "criterion": "V14.9-D EER is no more than 105% of the guarded baseline in every run",
+      "passed": true
+    },
+    {
+      "criterion": "At least three isolated overrides execute and total authority remains below 5%",
+      "passed": false
+    },
+    {
+      "criterion": "Every run respects the 8-override authority budget",
+      "passed": true
+    },
+    {
+      "criterion": "Mean V14.9-D P95 decision time is at most 2 seconds",
+      "passed": true
+    }
+  ],
+  "passed": false,
+  "claim_status": "development_only_no_confirmatory_claim"
+}

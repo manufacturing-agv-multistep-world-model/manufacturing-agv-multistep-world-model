@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+~$*
+*.tmp
+*.bak
+paper_outputs/submission_figures_current/_rendered/
+

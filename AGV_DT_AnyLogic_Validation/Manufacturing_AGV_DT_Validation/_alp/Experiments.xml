@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Experiments>
+	<SimulationExperiment ActiveObjectClassId="1783909473152">
+		<Id>1783909473160</Id>
+		<Name><![CDATA[Simulation]]></Name>
+		<CommandLineArguments/>
+		<MaximumMemory>1024</MaximumMemory>
+		<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
+		<CustomGeneratorCode>new Random()</CustomGeneratorCode>
+		<AfterSimulationRunCode>double elapsedHours = Math.max(
+    1e-9,
+    (root.time() - root.alStartTime) / 3600.0
+);
+
+String scenarioName =
+    root.alRushMode ? "rush" : "steady";
+
+int unfinishedTasks =
+    root.alTaskCount - root.alThroughput;
+
+double uph =
+    root.alThroughput / elapsedHours;
+
+double avgCycleTimeMin =
+    root.alThroughput &gt; 0
+    ? root.alCycleTimeSumSec
+        / root.alThroughput / 60.0
+    : 0.0;
+
+double avgWaitingTimeMin =
+    root.alThroughput &gt; 0
+    ? root.alWaitingTimeSumSec
+        / root.alThroughput / 60.0
+    : 0.0;
+
+double agvUtilizationPct =
+    100.0 * root.AGVFleet.utilization();
+
+traceln("========== 最终统计 ==========");
+traceln("Scenario = " + scenarioName);
+traceln("Run seed = " + root.alRunSeed);
+traceln("Generated tasks = " + root.alTaskCount);
+traceln("Completed tasks = " + root.alThroughput);
+traceln("Unfinished tasks = " + unfinishedTasks);
+traceln("UPH = " + uph);
+traceln("Average cycle time (min) = " + avgCycleTimeMin);
+traceln("Average waiting time (min) = " + avgWaitingTimeMin);
+traceln("Maximum WIP = " + root.alMaxWIP);
+traceln("AGV utilization (%) = " + agvUtilizationPct);
+traceln("Elapsed hours = " + elapsedHours);
+
+try {
+    String csvPath = "anylogic_validation_results.csv";
+      
+    java.io.File csvFile =
+        new java.io.File(csvPath);
+
+    boolean writeHeader =
+        !csvFile.exists() || csvFile.length() == 0;
+
+    java.io.BufferedWriter writer =
+        new java.io.BufferedWriter(
+            new java.io.FileWriter(csvFile, true)
+        );
+
+
+    if (writeHeader) {
+        writer.write(
+            "scenario,seed,horizon_h,generated_tasks,"
+            + "completed_tasks,unfinished_tasks,uph,"
+            + "avg_cycle_time_min,avg_waiting_time_min,"
+            + "max_wip,agv_utilization_pct"
+        );
+        writer.newLine();
+    }
+
+    writer.write(
+        scenarioName + ","
+        + root.alRunSeed + ","
+        + elapsedHours + ","
+        + root.alTaskCount + ","
+        + root.alThroughput + ","
+        + unfinishedTasks + ","
+        + uph + ","
+        + avgCycleTimeMin + ","
+        + avgWaitingTimeMin + ","
+        + root.alMaxWIP + ","
+        + agvUtilizationPct
+    );
+
+    writer.newLine();
+    writer.close();
+
+    traceln("CSV saved to: " + csvPath);
+
+} catch (Exception e) {
+    traceln("CSV write failed: " + e.getMessage());
+}</AfterSimulationRunCode>
+		<SeedValue>3</SeedValue>
+		<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
+		<VmArgs/>
+		<LoadRootFromSnapshot>false</LoadRootFromSnapshot>
+		<Presentation>
+			<Text>
+				<Id>1783909473162</Id>
+				<Name><![CDATA[text]]></Name>
+				<X>50</X>
+				<Y>30</Y>
+				<Label>
+					<X>10</X>
+					<Y>0</Y>
+				</Label>
+				<PublicFlag>true</PublicFlag>
+				<PresentationFlag>true</PresentationFlag>
+				<ShowLabel>false</ShowLabel>
+				<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+				<EmbeddedIcon>false</EmbeddedIcon>
+				<Z>0</Z>
+				<Rotation>0.0</Rotation>
+				<Color>-12490271</Color>
+				<Text><![CDATA[AGV713]]></Text>
+				<Font>
+					<Name><![CDATA[SansSerif]]></Name>
+					<Size>24</Size>
+					<Style>0</Style>
+				</Font>
+				<Alignment>LEFT</Alignment>
+			</Text>
+		</Presentation>
+		<Parameters/>
+		<PresentationProperties>
+			<EnableZoomAndPanning>true</EnableZoomAndPanning>
+			<ExecutionMode>virtualTime</ExecutionMode>
+			<Title>Manufacturing-System AGV Digital Twin - Independent Validation</Title>
+			<EnableDeveloperPanel>true</EnableDeveloperPanel>
+			<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>
+			<RealTimeScale>1.0</RealTimeScale>
+		</PresentationProperties>
+		<ModelTimeProperties>
+			<StopOption>Stop at specified time</StopOption>
+			<InitialDate>1783900800000</InitialDate>
+			<InitialTime>0.0</InitialTime>
+			<FinalDate>1783915200000</FinalDate>
+			<FinalTime>14400.0</FinalTime>
+		</ModelTimeProperties>
+		<BypassInitialScreen>false</BypassInitialScreen>
+	</SimulationExperiment>
+</Experiments>

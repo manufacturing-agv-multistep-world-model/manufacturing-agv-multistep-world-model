@@ -1,0 +1,145 @@
+﻿condition,model_seed,horizon_steps,metric,mae,sample_count
+Full,42,1,delta_time_sec,3.291965877330756,1580
+Full,42,1,delta_energy_wh,1.2807122378032418,1580
+Full,42,1,blocked_delta,0.23099110169171155,1580
+Full,42,3,delta_time_sec,3.5719028653223304,1580
+Full,42,3,delta_energy_wh,1.5290792660056791,1580
+Full,42,3,blocked_delta,0.28738849701807845,1580
+Full,42,5,delta_time_sec,3.795817858810666,1580
+Full,42,5,delta_energy_wh,1.726337272815312,1580
+Full,42,5,blocked_delta,0.3320779300660272,1580
+Full,42,10,delta_time_sec,4.820319766636136,1580
+Full,42,10,delta_energy_wh,2.2400140450725075,1580
+Full,42,10,blocked_delta,0.4594105555593402,1580
+Full,43,1,delta_time_sec,3.2581310989736,1580
+Full,43,1,delta_energy_wh,1.2445566411731364,1580
+Full,43,1,blocked_delta,0.21094037658664622,1580
+Full,43,3,delta_time_sec,3.5335795833340176,1580
+Full,43,3,delta_energy_wh,1.529154433413774,1580
+Full,43,3,blocked_delta,0.27798961605169353,1580
+Full,43,5,delta_time_sec,3.928585683997673,1580
+Full,43,5,delta_energy_wh,1.7600517123843296,1580
+Full,43,5,blocked_delta,0.341747309202682,1580
+Full,43,10,delta_time_sec,5.218063196351257,1580
+Full,43,10,delta_energy_wh,2.555418296026278,1580
+Full,43,10,blocked_delta,0.5408466140692464,1580
+Full,44,1,delta_time_sec,3.2232998026322717,1580
+Full,44,1,delta_energy_wh,1.2440277338216577,1580
+Full,44,1,blocked_delta,0.21450504000428355,1580
+Full,44,3,delta_time_sec,3.532677138757102,1580
+Full,44,3,delta_energy_wh,1.554211120194272,1580
+Full,44,3,blocked_delta,0.2807310098758604,1580
+Full,44,5,delta_time_sec,3.9651143359232552,1580
+Full,44,5,delta_energy_wh,1.807116345023807,1580
+Full,44,5,blocked_delta,0.3441475053848345,1580
+Full,44,10,delta_time_sec,5.328842968880376,1580
+Full,44,10,delta_energy_wh,2.5077425699256644,1580
+Full,44,10,blocked_delta,0.48863525166164473,1580
+No physics loss,42,1,delta_time_sec,3.2258786453476436,1580
+No physics loss,42,1,delta_energy_wh,1.2304542569608627,1580
+No physics loss,42,1,blocked_delta,0.2180908450738916,1580
+No physics loss,42,3,delta_time_sec,3.682117258597024,1580
+No physics loss,42,3,delta_energy_wh,1.52733309891405,1580
+No physics loss,42,3,blocked_delta,0.29293753396295297,1580
+No physics loss,42,5,delta_time_sec,3.7565491947946668,1580
+No physics loss,42,5,delta_energy_wh,1.6841002128169507,1580
+No physics loss,42,5,blocked_delta,0.33204321829672856,1580
+No physics loss,42,10,delta_time_sec,4.684379973818984,1580
+No physics loss,42,10,delta_energy_wh,2.19556796164075,1580
+No physics loss,42,10,blocked_delta,0.4532105257286678,1580
+No physics loss,43,1,delta_time_sec,3.4682062782064267,1580
+No physics loss,43,1,delta_energy_wh,1.410831667247075,1580
+No physics loss,43,1,blocked_delta,0.23413144478550818,1580
+No physics loss,43,3,delta_time_sec,3.6204686288592183,1580
+No physics loss,43,3,delta_energy_wh,1.6534457805224612,1580
+No physics loss,43,3,blocked_delta,0.2951066969516628,1580
+No physics loss,43,5,delta_time_sec,3.927897068820422,1580
+No physics loss,43,5,delta_energy_wh,1.8954810051884077,1580
+No physics loss,43,5,blocked_delta,0.3528269118181418,1580
+No physics loss,43,10,delta_time_sec,4.938114236200912,1580
+No physics loss,43,10,delta_energy_wh,2.511490979111647,1580
+No physics loss,43,10,blocked_delta,0.5151023773629737,1580
+No physics loss,44,1,delta_time_sec,3.461311757262749,1580
+No physics loss,44,1,delta_energy_wh,1.3719648942162719,1580
+No physics loss,44,1,blocked_delta,0.24330162131993832,1580
+No physics loss,44,3,delta_time_sec,3.7006232070017466,1580
+No physics loss,44,3,delta_energy_wh,1.676633256843573,1580
+No physics loss,44,3,blocked_delta,0.3207150238648623,1580
+No physics loss,44,5,delta_time_sec,4.071838701752168,1580
+No physics loss,44,5,delta_energy_wh,1.9529084190914903,1580
+No physics loss,44,5,blocked_delta,0.38731258189942264,1580
+No physics loss,44,10,delta_time_sec,5.095849821386458,1580
+No physics loss,44,10,delta_energy_wh,2.5032617096848124,1580
+No physics loss,44,10,blocked_delta,0.5262222794698009,1580
+No physical features,42,1,delta_time_sec,3.7221050788330126,1580
+No physical features,42,1,delta_energy_wh,1.502296808022487,1580
+No physical features,42,1,blocked_delta,0.276634711713259,1580
+No physical features,42,3,delta_time_sec,3.9271663757819164,1580
+No physical features,42,3,delta_energy_wh,1.710534673306761,1580
+No physical features,42,3,blocked_delta,0.3341218474568634,1580
+No physical features,42,5,delta_time_sec,4.218118068236339,1580
+No physical features,42,5,delta_energy_wh,1.8853108183115344,1580
+No physical features,42,5,blocked_delta,0.3897804207203886,1580
+No physical features,42,10,delta_time_sec,5.469710934463936,1580
+No physical features,42,10,delta_energy_wh,2.575232612011553,1580
+No physical features,42,10,blocked_delta,0.5310241815810905,1580
+No physical features,43,1,delta_time_sec,3.4948209759555287,1580
+No physical features,43,1,delta_energy_wh,1.44844412466016,1580
+No physical features,43,1,blocked_delta,0.2603543877990657,1580
+No physical features,43,3,delta_time_sec,3.7477313432512402,1580
+No physical features,43,3,delta_energy_wh,1.664322597825829,1580
+No physical features,43,3,blocked_delta,0.3176020510919109,1580
+No physical features,43,5,delta_time_sec,3.8716084743602366,1580
+No physical features,43,5,delta_energy_wh,1.7708290439429162,1580
+No physical features,43,5,blocked_delta,0.3571140007210212,1580
+No physical features,43,10,delta_time_sec,4.736628162785421,1580
+No physical features,43,10,delta_energy_wh,2.3206492035166373,1580
+No physical features,43,10,blocked_delta,0.46211658490326585,1580
+No physical features,44,1,delta_time_sec,3.4406281579144395,1580
+No physical features,44,1,delta_energy_wh,1.4448163705347459,1580
+No physical features,44,1,blocked_delta,0.2656540407174373,1580
+No physical features,44,3,delta_time_sec,3.5778696578514726,1580
+No physical features,44,3,delta_energy_wh,1.5885320929409583,1580
+No physical features,44,3,blocked_delta,0.31945122142758553,1580
+No physical features,44,5,delta_time_sec,3.721736597788485,1580
+No physical features,44,5,delta_energy_wh,1.7806991542630557,1580
+No physical features,44,5,blocked_delta,0.37212968000411234,1580
+No physical features,44,10,delta_time_sec,4.694547510977033,1580
+No physical features,44,10,delta_energy_wh,2.3509283433043504,1580
+No physical features,44,10,blocked_delta,0.5133672606577224,1580
+Data-only graph,42,1,delta_time_sec,3.8495281445074685,1580
+Data-only graph,42,1,delta_energy_wh,1.5340698234453987,1580
+Data-only graph,42,1,blocked_delta,0.27583222270624924,1580
+Data-only graph,42,3,delta_time_sec,3.9123596644099754,1580
+Data-only graph,42,3,delta_energy_wh,1.7123086533403096,1580
+Data-only graph,42,3,blocked_delta,0.3335667159927042,1580
+Data-only graph,42,5,delta_time_sec,4.069774512852295,1580
+Data-only graph,42,5,delta_energy_wh,1.8196409764169137,1580
+Data-only graph,42,5,blocked_delta,0.37288415833741806,1580
+Data-only graph,42,10,delta_time_sec,5.13193495137782,1580
+Data-only graph,42,10,delta_energy_wh,2.436516276643246,1580
+Data-only graph,42,10,blocked_delta,0.4852920393542021,1580
+Data-only graph,43,1,delta_time_sec,3.4924472559101973,1580
+Data-only graph,43,1,delta_energy_wh,1.4633904526128045,1580
+Data-only graph,43,1,blocked_delta,0.2608921249573932,1580
+Data-only graph,43,3,delta_time_sec,3.690332740545273,1580
+Data-only graph,43,3,delta_energy_wh,1.662562220213534,1580
+Data-only graph,43,3,blocked_delta,0.31286244595281876,1580
+Data-only graph,43,5,delta_time_sec,3.9050786079485205,1580
+Data-only graph,43,5,delta_energy_wh,1.7775986981448493,1580
+Data-only graph,43,5,blocked_delta,0.357428146179624,1580
+Data-only graph,43,10,delta_time_sec,4.881730906721912,1580
+Data-only graph,43,10,delta_energy_wh,2.4436693305927744,1580
+Data-only graph,43,10,blocked_delta,0.5047781095285959,1580
+Data-only graph,44,1,delta_time_sec,3.614678084473067,1580
+Data-only graph,44,1,delta_energy_wh,1.5414445698638506,1580
+Data-only graph,44,1,blocked_delta,0.27004065614052214,1580
+Data-only graph,44,3,delta_time_sec,3.810218254901186,1580
+Data-only graph,44,3,delta_energy_wh,1.7237950402158726,1580
+Data-only graph,44,3,blocked_delta,0.3252216554329365,1580
+Data-only graph,44,5,delta_time_sec,4.1361935644964625,1580
+Data-only graph,44,5,delta_energy_wh,1.975342691868921,1580
+Data-only graph,44,5,blocked_delta,0.3789570301393919,1580
+Data-only graph,44,10,delta_time_sec,5.5153523546985435,1580
+Data-only graph,44,10,delta_energy_wh,2.690236736909498,1580
+Data-only graph,44,10,blocked_delta,0.5647635369031112,1580

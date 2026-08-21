@@ -1,0 +1,344 @@
+{
+  "protocol": "v151_preregistered_paired_delta_vs_absolute_outcome_v1",
+  "data_seed": 18400,
+  "episodes": 12,
+  "samples": 1257,
+  "cache_source": "collected",
+  "cache_signature": {
+    "schema": "v151_preregistered_paired_delta_vs_absolute_outcome_v1",
+    "config": {
+      "episodes": 12,
+      "behavior_steps": 4000,
+      "warmup_steps": 1200,
+      "sample_stride": 80,
+      "candidates_per_state": 3,
+      "exploration_rate": 0.35,
+      "horizons_sec": [
+        120.0,
+        360.0,
+        720.0
+      ],
+      "max_rollout_steps": 500,
+      "maximum_relative_overshoot": 0.35,
+      "maximum_absolute_overshoot_sec": 60.0,
+      "seed": 18400
+    },
+    "training_data_disjoint": true,
+    "model_parameters_frozen": true,
+    "primary_endpoint": "paired_terminal_ranking_regret_difference",
+    "comparison": "direct_delta_supervision_vs_absolute_then_difference"
+  },
+  "device": "cpu",
+  "paired_checkpoints": [
+    "world_model_runs\\pi_gwm_counterfactual_v141_seed42\\physics_graph_world_model_counterfactual.pt",
+    "world_model_runs\\pi_gwm_counterfactual_v141_seed43\\physics_graph_world_model_counterfactual.pt",
+    "world_model_runs\\pi_gwm_counterfactual_v141_seed44\\physics_graph_world_model_counterfactual.pt"
+  ],
+  "absolute_checkpoints": [
+    "world_model_runs\\pi_gwm_absolute_v151_seed42\\absolute_outcome_graph_baseline.pt",
+    "world_model_runs\\pi_gwm_absolute_v151_seed43\\absolute_outcome_graph_baseline.pt",
+    "world_model_runs\\pi_gwm_absolute_v151_seed44\\absolute_outcome_graph_baseline.pt"
+  ],
+  "paired_head_parameters": [
+    56457,
+    56457,
+    56457
+  ],
+  "absolute_head_parameters": [
+    56457,
+    56457,
+    56457
+  ],
+  "common_evaluation_scale": [
+    [
+      7.22723388671875,
+      0.865140438079834,
+      17.939807891845703
+    ],
+    [
+      11.733116149902344,
+      0.8435439467430115,
+      19.952228546142578
+    ],
+    [
+      15.51654052734375,
+      0.9496880769729614,
+      27.793127059936523
+    ]
+  ],
+  "dataset_summary": {
+    "samples": 1257,
+    "episodes": 12,
+    "target_mean": [
+      [
+        -0.8088830498847503,
+        -0.029150821894765106,
+        -0.31507230040139644
+      ],
+      [
+        -0.5936425890462339,
+        -0.0234121749387557,
+        -0.35249255009037833
+      ],
+      [
+        -1.151842682334288,
+        -0.02404867661369998,
+        -0.8491668509968759
+      ]
+    ],
+    "target_std": [
+      [
+        7.231070813054426,
+        0.20520750728446704,
+        4.800700080251805
+      ],
+      [
+        9.253987393911428,
+        0.23761086335378906,
+        7.066768627104076
+      ],
+      [
+        17.86068739018898,
+        0.5154009440851041,
+        10.34601607048961
+      ]
+    ],
+    "target_nonzero_rate": [
+      [
+        0.3876500857632933,
+        0.09605488850771869,
+        0.04974271012006861
+      ],
+      [
+        0.3819951338199513,
+        0.1897810218978102,
+        0.0786699107866991
+      ],
+      [
+        0.39198036006546644,
+        0.2569558101472995,
+        0.11129296235679215
+      ]
+    ],
+    "target_abs_q75": [
+      [
+        1.649606704711914,
+        0.0,
+        0.0
+      ],
+      [
+        3.12603759765625,
+        0.0,
+        0.0
+      ],
+      [
+        4.332344055175781,
+        0.00046265125274658203,
+        0.0
+      ]
+    ],
+    "valid_target_rate": [
+      [
+        0.9276054097056484,
+        0.9276054097056484,
+        0.9276054097056484
+      ],
+      [
+        0.9809069212410502,
+        0.9809069212410502,
+        0.9809069212410502
+      ],
+      [
+        0.9721559268098647,
+        0.9721559268098647,
+        0.9721559268098647
+      ]
+    ],
+    "maximum_overshoot_sec": 101.13333129882812,
+    "mean_action_hamming_distance": 1.437549721559268
+  },
+  "direct_delta_ranking": {
+    "decision_states": 410.0,
+    "model_mean_regret": 0.3465702917286223,
+    "baseline_mean_regret": 0.5061195942494134,
+    "regret_reduction": 0.3152403193506197,
+    "top1_agreement": 0.4024390243902439,
+    "random_top1": 0.25182926829268293
+  },
+  "absolute_outcome_ranking": {
+    "decision_states": 410.0,
+    "model_mean_regret": 0.46049138237115206,
+    "baseline_mean_regret": 0.5061195942494134,
+    "regret_reduction": 0.09015302390323188,
+    "top1_agreement": 0.17560975609756097,
+    "random_top1": 0.25182926829268293
+  },
+  "paired_comparison": {
+    "mean_difference": 0.11392109064252971,
+    "positive_episodes": 8
+  },
+  "paired_episode_bootstrap": {
+    "replicates": 5000,
+    "mean": 0.11281247530827056,
+    "ci_low": -0.006986753051242627,
+    "ci_high": 0.22455780460072014,
+    "p_absolute_minus_direct_le_zero": 0.0334
+  },
+  "exact_episode_sign_test": {
+    "nonzero_episodes": 12,
+    "positive_episodes": 8,
+    "p_value": 0.3876953125
+  },
+  "episode_results": [
+    {
+      "episode_id": 0,
+      "decision_states": 33,
+      "direct_mean_regret": 0.41983251250925124,
+      "absolute_mean_regret": 0.1660516696671228,
+      "absolute_minus_direct_regret": -0.2537808428421284,
+      "direct_top1": 0.30303030303030304,
+      "absolute_top1": 0.21212121212121213
+    },
+    {
+      "episode_id": 1,
+      "decision_states": 35,
+      "direct_mean_regret": 0.20101694303069628,
+      "absolute_mean_regret": 0.15451707710713525,
+      "absolute_minus_direct_regret": -0.04649986592356107,
+      "direct_top1": 0.2857142857142857,
+      "absolute_top1": 0.22857142857142856
+    },
+    {
+      "episode_id": 2,
+      "decision_states": 35,
+      "direct_mean_regret": 0.35103905054400386,
+      "absolute_mean_regret": 0.5973062433143467,
+      "absolute_minus_direct_regret": 0.24626719277034276,
+      "direct_top1": 0.42857142857142855,
+      "absolute_top1": 0.14285714285714285
+    },
+    {
+      "episode_id": 3,
+      "decision_states": 33,
+      "direct_mean_regret": 0.5283227810936474,
+      "absolute_mean_regret": 0.9094473103794347,
+      "absolute_minus_direct_regret": 0.3811245292857874,
+      "direct_top1": 0.42424242424242425,
+      "absolute_top1": 0.15151515151515152
+    },
+    {
+      "episode_id": 4,
+      "decision_states": 35,
+      "direct_mean_regret": 0.197757735855177,
+      "absolute_mean_regret": 0.5454776616139886,
+      "absolute_minus_direct_regret": 0.3477199257588116,
+      "direct_top1": 0.5428571428571428,
+      "absolute_top1": 0.22857142857142856
+    },
+    {
+      "episode_id": 5,
+      "decision_states": 35,
+      "direct_mean_regret": 0.5794106141194896,
+      "absolute_mean_regret": 0.9532416209458361,
+      "absolute_minus_direct_regret": 0.37383100682634646,
+      "direct_top1": 0.37142857142857144,
+      "absolute_top1": 0.14285714285714285
+    },
+    {
+      "episode_id": 6,
+      "decision_states": 34,
+      "direct_mean_regret": 0.1736743130343279,
+      "absolute_mean_regret": 0.3884050721343138,
+      "absolute_minus_direct_regret": 0.21473075909998587,
+      "direct_top1": 0.38235294117647056,
+      "absolute_top1": 0.11764705882352941
+    },
+    {
+      "episode_id": 7,
+      "decision_states": 35,
+      "direct_mean_regret": 0.3640103008111786,
+      "absolute_mean_regret": 0.5001166641246848,
+      "absolute_minus_direct_regret": 0.1361063633135062,
+      "direct_top1": 0.4857142857142857,
+      "absolute_top1": 0.2
+    },
+    {
+      "episode_id": 8,
+      "decision_states": 35,
+      "direct_mean_regret": 0.3737755568756367,
+      "absolute_mean_regret": 0.1656583808350198,
+      "absolute_minus_direct_regret": -0.20811717604061683,
+      "direct_top1": 0.45714285714285713,
+      "absolute_top1": 0.22857142857142856
+    },
+    {
+      "episode_id": 9,
+      "decision_states": 34,
+      "direct_mean_regret": 0.22012682467352665,
+      "absolute_mean_regret": 0.271018874756157,
+      "absolute_minus_direct_regret": 0.05089205008263028,
+      "direct_top1": 0.4411764705882353,
+      "absolute_top1": 0.08823529411764706
+    },
+    {
+      "episode_id": 10,
+      "decision_states": 33,
+      "direct_mean_regret": 0.6017557226533358,
+      "absolute_mean_regret": 0.5592360511300812,
+      "absolute_minus_direct_regret": -0.04251967152325454,
+      "direct_top1": 0.42424242424242425,
+      "absolute_top1": 0.12121212121212122
+    },
+    {
+      "episode_id": 11,
+      "decision_states": 33,
+      "direct_mean_regret": 0.15794425293775768,
+      "absolute_mean_regret": 0.31405087488278366,
+      "absolute_minus_direct_regret": 0.15610662194502598,
+      "direct_top1": 0.2727272727272727,
+      "absolute_top1": 0.24242424242424243
+    }
+  ],
+  "integrity_criteria": [
+    {
+      "criterion": "The frozen 12 complete confirmation trajectories are present",
+      "passed": true
+    },
+    {
+      "criterion": "Both methods rank identical state-action candidates",
+      "passed": true
+    },
+    {
+      "criterion": "All six heads have exactly 56,457 trainable-stage parameters",
+      "passed": true
+    },
+    {
+      "criterion": "The evaluation utility uses one common paired-training scale",
+      "passed": true
+    },
+    {
+      "criterion": "All paired regret values are finite",
+      "passed": true
+    }
+  ],
+  "scientific_criteria": [
+    {
+      "criterion": "Direct paired supervision has lower mean ranking regret",
+      "passed": true
+    },
+    {
+      "criterion": "The trajectory-bootstrap 95% interval is above zero",
+      "passed": false
+    },
+    {
+      "criterion": "At least 9 of 12 trajectories favor direct paired supervision",
+      "passed": false
+    },
+    {
+      "criterion": "Direct paired top-1 agreement is not lower",
+      "passed": true
+    }
+  ],
+  "integrity_passed": true,
+  "scientific_support": false
+}

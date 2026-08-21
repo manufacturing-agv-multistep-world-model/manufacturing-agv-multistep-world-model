@@ -1,0 +1,8 @@
+﻿task_id,origin,destination,task_class,steady_rate_per_hour,rush_rate_per_hour,load_kg,priority
+T01,A,B,main_inbound,12,30,120,1
+T02,A,W1_Storage,warehouse_slotting,4,10,120,1
+T03,A,W2_Storage,warehouse_slotting,4,10,120,1
+T04,B,PrepBuffer,buffer_replenishment,3,8,80,2
+T05,B,P1_Packaging,packaging_supply,5,14,60,2
+T06,P2_Labeling,B,labeled_goods_return,2,6,100,2
+T07,MaterialBuffer,P2_Labeling,local_supply,4,10,60,3

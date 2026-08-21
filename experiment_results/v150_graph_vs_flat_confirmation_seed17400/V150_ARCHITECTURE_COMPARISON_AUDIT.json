@@ -1,0 +1,332 @@
+{
+  "protocol": "v150_frozen_paired_graph_vs_flat_ranking_v1",
+  "phase": "confirmation",
+  "status": "frozen_independent_confirmation",
+  "data_seed": 17400,
+  "episodes": 12,
+  "samples": 1256,
+  "cache_source": "collected",
+  "cache_signature": {
+    "schema": "v150_frozen_paired_graph_vs_flat_ranking_v1",
+    "phase": "confirmation",
+    "config": {
+      "episodes": 12,
+      "behavior_steps": 4000,
+      "warmup_steps": 1200,
+      "sample_stride": 80,
+      "candidates_per_state": 3,
+      "exploration_rate": 0.35,
+      "horizons_sec": [
+        120.0,
+        360.0,
+        720.0
+      ],
+      "max_rollout_steps": 500,
+      "maximum_relative_overshoot": 0.35,
+      "maximum_absolute_overshoot_sec": 60.0,
+      "seed": 17400
+    },
+    "training_data_disjoint": true,
+    "model_parameters_frozen": true,
+    "primary_endpoint": "paired_terminal_ranking_regret_difference"
+  },
+  "graph_checkpoints": [
+    "world_model_runs\\pi_gwm_counterfactual_v141_seed42\\physics_graph_world_model_counterfactual.pt",
+    "world_model_runs\\pi_gwm_counterfactual_v141_seed43\\physics_graph_world_model_counterfactual.pt",
+    "world_model_runs\\pi_gwm_counterfactual_v141_seed44\\physics_graph_world_model_counterfactual.pt"
+  ],
+  "flat_checkpoints": [
+    "world_model_runs\\flat_mlp_counterfactual_v150_seed42\\flat_counterfactual_baseline.pt",
+    "world_model_runs\\flat_mlp_counterfactual_v150_seed43\\flat_counterfactual_baseline.pt",
+    "world_model_runs\\flat_mlp_counterfactual_v150_seed44\\flat_counterfactual_baseline.pt"
+  ],
+  "graph_head_parameter_counts": [
+    56457,
+    56457,
+    56457
+  ],
+  "flat_parameter_counts": [
+    56457,
+    56457,
+    56457
+  ],
+  "same_training_scale": true,
+  "dataset_summary": {
+    "samples": 1256,
+    "episodes": 12,
+    "target_mean": [
+      [
+        -0.3661172804004418,
+        -0.022319799105870203,
+        -0.4030318996455549
+      ],
+      [
+        0.4642194122488272,
+        0.002702747834611463,
+        -0.43386615651520993
+      ],
+      [
+        -0.12378352991843204,
+        -0.011362913853748362,
+        -0.7382097670356013
+      ]
+    ],
+    "target_std": [
+      [
+        7.4506929778549695,
+        0.1784121801700149,
+        4.702849111733651
+      ],
+      [
+        11.460195791436295,
+        0.30058688286456203,
+        6.790168066387119
+      ],
+      [
+        17.252547962603085,
+        0.5402326219788731,
+        9.351692834067434
+      ]
+    ],
+    "target_nonzero_rate": [
+      [
+        0.40718562874251496,
+        0.1009409751924722,
+        0.055603079555175364
+      ],
+      [
+        0.39869812855980474,
+        0.2050447518307567,
+        0.0854353132628153
+      ],
+      [
+        0.40373679935012186,
+        0.26238830219333875,
+        0.11941510966693746
+      ]
+    ],
+    "target_abs_q75": [
+      [
+        1.7967033386230469,
+        0.0,
+        0.0
+      ],
+      [
+        3.12603759765625,
+        0.0,
+        0.0
+      ],
+      [
+        4.215583801269531,
+        0.001278519630432129,
+        0.0
+      ]
+    ],
+    "valid_target_rate": [
+      [
+        0.9307324840764332,
+        0.9307324840764332,
+        0.9307324840764332
+      ],
+      [
+        0.9785031847133758,
+        0.9785031847133758,
+        0.9785031847133758
+      ],
+      [
+        0.9800955414012739,
+        0.9800955414012739,
+        0.9800955414012739
+      ]
+    ],
+    "maximum_overshoot_sec": 104.25,
+    "mean_action_hamming_distance": 1.4036624203821657
+  },
+  "graph_ranking": {
+    "decision_states": 413.0,
+    "model_mean_regret": 0.3042987312906338,
+    "baseline_mean_regret": 0.43463017240189106,
+    "regret_reduction": 0.29986744912578966,
+    "top1_agreement": 0.38498789346246975,
+    "random_top1": 0.25201775625504436
+  },
+  "flat_ranking": {
+    "decision_states": 413.0,
+    "model_mean_regret": 0.3291678910485646,
+    "baseline_mean_regret": 0.43463017240189106,
+    "regret_reduction": 0.2426483204571639,
+    "top1_agreement": 0.3196125907990315,
+    "random_top1": 0.25201775625504436
+  },
+  "paired_comparison": {
+    "mean_difference": 0.024869159757930873,
+    "positive_episode_count": 7
+  },
+  "episode_results": [
+    {
+      "episode_id": 0,
+      "decision_states": 35,
+      "graph_mean_regret": 0.21869068796873328,
+      "flat_mean_regret": 0.48061280428377384,
+      "flat_minus_graph_regret": 0.2619221163150406,
+      "graph_top1": 0.37142857142857144,
+      "flat_top1": 0.22857142857142856
+    },
+    {
+      "episode_id": 1,
+      "decision_states": 34,
+      "graph_mean_regret": 0.26643267784504543,
+      "flat_mean_regret": 0.3435779589449291,
+      "flat_minus_graph_regret": 0.07714528109988372,
+      "graph_top1": 0.5294117647058824,
+      "flat_top1": 0.4117647058823529
+    },
+    {
+      "episode_id": 2,
+      "decision_states": 34,
+      "graph_mean_regret": 0.2971805677026193,
+      "flat_mean_regret": 0.18720526518877273,
+      "flat_minus_graph_regret": -0.10997530251384653,
+      "graph_top1": 0.35294117647058826,
+      "flat_top1": 0.38235294117647056
+    },
+    {
+      "episode_id": 3,
+      "decision_states": 35,
+      "graph_mean_regret": 0.2995677765355366,
+      "flat_mean_regret": 0.26210871392491836,
+      "flat_minus_graph_regret": -0.037459062610618224,
+      "graph_top1": 0.42857142857142855,
+      "flat_top1": 0.37142857142857144
+    },
+    {
+      "episode_id": 4,
+      "decision_states": 35,
+      "graph_mean_regret": 0.3470659259416677,
+      "flat_mean_regret": 0.2838759300098207,
+      "flat_minus_graph_regret": -0.06318999593184693,
+      "graph_top1": 0.2571428571428571,
+      "flat_top1": 0.22857142857142856
+    },
+    {
+      "episode_id": 5,
+      "decision_states": 32,
+      "graph_mean_regret": 0.264813856256251,
+      "flat_mean_regret": 0.27716907169940563,
+      "flat_minus_graph_regret": 0.012355215443154651,
+      "graph_top1": 0.4375,
+      "flat_top1": 0.25
+    },
+    {
+      "episode_id": 6,
+      "decision_states": 35,
+      "graph_mean_regret": 0.09744890913444278,
+      "flat_mean_regret": 0.12009245555509328,
+      "flat_minus_graph_regret": 0.022643546420650505,
+      "graph_top1": 0.5714285714285714,
+      "flat_top1": 0.4
+    },
+    {
+      "episode_id": 7,
+      "decision_states": 35,
+      "graph_mean_regret": 0.19546029741896287,
+      "flat_mean_regret": 0.2922799173856574,
+      "flat_minus_graph_regret": 0.09681961996669446,
+      "graph_top1": 0.3142857142857143,
+      "flat_top1": 0.3142857142857143
+    },
+    {
+      "episode_id": 8,
+      "decision_states": 35,
+      "graph_mean_regret": 0.47355336773908335,
+      "flat_mean_regret": 0.41428267917334416,
+      "flat_minus_graph_regret": -0.0592706885657392,
+      "graph_top1": 0.2,
+      "flat_top1": 0.22857142857142856
+    },
+    {
+      "episode_id": 9,
+      "decision_states": 33,
+      "graph_mean_regret": 0.3161098626108204,
+      "flat_mean_regret": 0.3620150070435454,
+      "flat_minus_graph_regret": 0.04590514443272497,
+      "graph_top1": 0.30303030303030304,
+      "flat_top1": 0.3333333333333333
+    },
+    {
+      "episode_id": 10,
+      "decision_states": 35,
+      "graph_mean_regret": 0.4029403486576095,
+      "flat_mean_regret": 0.1867102671881145,
+      "flat_minus_graph_regret": -0.21623008146949496,
+      "graph_top1": 0.4857142857142857,
+      "flat_top1": 0.37142857142857144
+    },
+    {
+      "episode_id": 11,
+      "decision_states": 35,
+      "graph_mean_regret": 0.46832573826265117,
+      "flat_mean_regret": 0.7338601997848024,
+      "flat_minus_graph_regret": 0.2655344615221513,
+      "graph_top1": 0.37142857142857144,
+      "flat_top1": 0.3142857142857143
+    }
+  ],
+  "paired_episode_bootstrap": {
+    "replicates": 5000,
+    "mean": 0.02469395904784374,
+    "ci_low": -0.052324742765316866,
+    "ci_high": 0.10295411595087857,
+    "p_flat_minus_graph_le_zero": 0.276
+  },
+  "integrity_criteria": [
+    {
+      "criterion": "The frozen number of complete trajectories is present",
+      "passed": true
+    },
+    {
+      "criterion": "The frozen minimum paired candidate sample count is met",
+      "passed": true
+    },
+    {
+      "criterion": "The frozen minimum complete decision-state count is met",
+      "passed": true
+    },
+    {
+      "criterion": "Graph and flat methods rank identical state-action candidates",
+      "passed": true
+    },
+    {
+      "criterion": "All six frozen models use identical train-only target scales",
+      "passed": true
+    },
+    {
+      "criterion": "All graph heads and flat models have exactly 56,457 trainable parameters",
+      "passed": true
+    },
+    {
+      "criterion": "Every target component has at least 85% physical-time coverage",
+      "passed": true
+    }
+  ],
+  "integrity_passed": true,
+  "scientific_criteria": [
+    {
+      "criterion": "Full V14.1 has lower mean regret than the flat MLP",
+      "passed": true
+    },
+    {
+      "criterion": "The paired trajectory-bootstrap 95% interval is above zero",
+      "passed": false
+    },
+    {
+      "criterion": "At least 9 of 12 confirmation trajectories favor Full V14.1",
+      "passed": false
+    },
+    {
+      "criterion": "Full V14.1 top-1 agreement is not below the flat MLP",
+      "passed": true
+    }
+  ],
+  "scientific_support": false
+}

@@ -1,0 +1,259 @@
+{
+  "protocol": "v151_absolute_outcome_then_difference_train_only_v1",
+  "scientific_role": "absolute_outcome_then_difference_formulation_baseline",
+  "device": "cpu",
+  "mixed_precision": false,
+  "model_seed": 43,
+  "cache_source": "cache",
+  "cache_signature": {
+    "schema": "v141_paired_crn_material_action_fixed_physical_horizon_v2",
+    "collection": {
+      "episodes": 12,
+      "behavior_steps": 4000,
+      "warmup_steps": 1200,
+      "sample_stride": 60,
+      "candidates_per_state": 3,
+      "exploration_rate": 0.35,
+      "horizons_sec": [
+        120.0,
+        360.0,
+        720.0
+      ],
+      "max_rollout_steps": 500,
+      "maximum_relative_overshoot": 0.35,
+      "maximum_absolute_overshoot_sec": 60.0,
+      "seed": 14100
+    },
+    "scenario": "rush",
+    "capacity_mode": "stress",
+    "continuation_policy": "dt_aware_after_first_action",
+    "common_random_numbers": true,
+    "metrics": [
+      "energy_wh",
+      "completed_tasks",
+      "charge_queue_time_sec"
+    ]
+  },
+  "training_episode_ids": [
+    0,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "validation_episode_ids": [
+    1,
+    3
+  ],
+  "training_samples": 1408,
+  "validation_samples": 282,
+  "trainable_parameters": 56457,
+  "outcome_scale": [
+    [
+      37.9370231628418,
+      0.9884678721427917,
+      58.663272857666016
+    ],
+    [
+      138.2626495361328,
+      2.9046573638916016,
+      53.28981399536133
+    ],
+    [
+      264.1298828125,
+      3.993159770965576,
+      65.86127471923828
+    ]
+  ],
+  "outcome_event_weight": [
+    [
+      1.0,
+      2.56500506401062,
+      4.139798641204834
+    ],
+    [
+      1.0,
+      1.0,
+      3.0060324668884277
+    ],
+    [
+      1.0,
+      1.0,
+      2.5317137241363525
+    ]
+  ],
+  "dataset_summary": {
+    "samples": 1690,
+    "episodes": 12,
+    "target_mean": [
+      [
+        -0.37768391675025015,
+        -0.008977822369605095,
+        -0.1820827516443447
+      ],
+      [
+        -0.6380126522470617,
+        -0.014138965788534132,
+        0.007239078061055329
+      ],
+      [
+        -0.2042178218937262,
+        -0.00443389185725432,
+        -0.02417270264175488
+      ]
+    ],
+    "target_std": [
+      [
+        6.21219347780674,
+        0.14974459086146594,
+        4.030567159651826
+      ],
+      [
+        11.748680334624344,
+        0.2806711708945669,
+        5.80042147141007
+      ],
+      [
+        18.661380532227266,
+        0.5276546469120915,
+        8.825311152009736
+      ]
+    ],
+    "target_nonzero_rate": [
+      [
+        0.40215326155794806,
+        0.06966434452184928,
+        0.05889803673210893
+      ],
+      [
+        0.39588377723970947,
+        0.17857142857142858,
+        0.10653753026634383
+      ],
+      [
+        0.3972520908004779,
+        0.23416965352449223,
+        0.13381123058542413
+      ]
+    ],
+    "target_abs_q75": [
+      [
+        1.6526679992675781,
+        0.0,
+        0.0
+      ],
+      [
+        2.816669464111328,
+        0.0,
+        0.0
+      ],
+      [
+        3.550060272216797,
+        0.0,
+        0.0
+      ]
+    ],
+    "valid_target_rate": [
+      [
+        0.934319526627219,
+        0.934319526627219,
+        0.934319526627219
+      ],
+      [
+        0.9775147928994082,
+        0.9775147928994082,
+        0.9775147928994082
+      ],
+      [
+        0.9905325443786982,
+        0.9905325443786982,
+        0.9905325443786982
+      ]
+    ],
+    "maximum_overshoot_sec": 104.38333129882812,
+    "mean_action_hamming_distance": 1.4236686390532545
+  },
+  "best_validation_loss": 0.06708469428122044,
+  "final_validation_loss": 0.06708469428122044,
+  "validation_report": {
+    "inferred_delta_components": [
+      {
+        "horizon_sec": 120.0,
+        "metric": "energy_wh",
+        "valid_samples": 264,
+        "inferred_delta_mae": 3.186530828475952,
+        "zero_delta_mae": 2.077770233154297,
+        "delta_mae_improvement_over_zero": -0.533630031670262
+      },
+      {
+        "horizon_sec": 120.0,
+        "metric": "completed_tasks",
+        "valid_samples": 264,
+        "inferred_delta_mae": 0.07352381944656372,
+        "zero_delta_mae": 0.01697978749871254,
+        "delta_mae_improvement_over_zero": -3.330078892456017
+      },
+      {
+        "horizon_sec": 120.0,
+        "metric": "charge_queue_time_sec",
+        "valid_samples": 264,
+        "inferred_delta_mae": 1.760880470275879,
+        "zero_delta_mae": 0.833180844783783,
+        "delta_mae_improvement_over_zero": -1.1134432954142643
+      },
+      {
+        "horizon_sec": 360.0,
+        "metric": "energy_wh",
+        "valid_samples": 267,
+        "inferred_delta_mae": 8.416958808898926,
+        "zero_delta_mae": 4.591341495513916,
+        "delta_mae_improvement_over_zero": -0.8332243021180028
+      },
+      {
+        "horizon_sec": 360.0,
+        "metric": "completed_tasks",
+        "valid_samples": 267,
+        "inferred_delta_mae": 0.1734447479248047,
+        "zero_delta_mae": 0.05870593711733818,
+        "delta_mae_improvement_over_zero": -1.9544668979243602
+      },
+      {
+        "horizon_sec": 360.0,
+        "metric": "charge_queue_time_sec",
+        "valid_samples": 267,
+        "inferred_delta_mae": 3.070161819458008,
+        "zero_delta_mae": 1.462141513824463,
+        "delta_mae_improvement_over_zero": -1.099770638087905
+      },
+      {
+        "horizon_sec": 720.0,
+        "metric": "energy_wh",
+        "valid_samples": 281,
+        "inferred_delta_mae": 13.285547256469727,
+        "zero_delta_mae": 5.659535884857178,
+        "delta_mae_improvement_over_zero": -1.347462323194545
+      },
+      {
+        "horizon_sec": 720.0,
+        "metric": "completed_tasks",
+        "valid_samples": 281,
+        "inferred_delta_mae": 0.2789543569087982,
+        "zero_delta_mae": 0.09882072359323502,
+        "delta_mae_improvement_over_zero": -1.8228325675596917
+      },
+      {
+        "horizon_sec": 720.0,
+        "metric": "charge_queue_time_sec",
+        "valid_samples": 281,
+        "inferred_delta_mae": 4.77419376373291,
+        "zero_delta_mae": 3.0543203353881836,
+        "delta_mae_improvement_over_zero": -0.5630953009145134
+      }
+    ]
+  }
+}

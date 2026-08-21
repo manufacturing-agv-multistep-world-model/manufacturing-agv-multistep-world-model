@@ -1,0 +1,304 @@
+{
+  "protocol": "v144_preregistered_independent_action_ranking_confirmation_v1",
+  "status": "preregistered_confirmation",
+  "data_seed": 15400,
+  "episodes": 12,
+  "samples": 1249,
+  "cache_source": "collected",
+  "checkpoints": [
+    "world_model_runs\\pi_gwm_counterfactual_v141_seed42\\physics_graph_world_model_counterfactual.pt",
+    "world_model_runs\\pi_gwm_counterfactual_v141_seed43\\physics_graph_world_model_counterfactual.pt",
+    "world_model_runs\\pi_gwm_counterfactual_v141_seed44\\physics_graph_world_model_counterfactual.pt"
+  ],
+  "utility_weights": {
+    "energy_wh": -1.0,
+    "completed_tasks": 1.0,
+    "charge_queue_time_sec": -1.0
+  },
+  "dataset_summary": {
+    "samples": 1249,
+    "episodes": 12,
+    "target_mean": [
+      [
+        -0.36519839603587034,
+        -0.015099939670163648,
+        -0.22898506141270153
+      ],
+      [
+        -0.3087324762189039,
+        -0.01849138707602063,
+        0.2555850416130662
+      ],
+      [
+        -0.603229373231226,
+        -0.024708041901491125,
+        0.3119623668826356
+      ]
+    ],
+    "target_std": [
+      [
+        6.931454890453299,
+        0.1647935025303365,
+        4.91748031150019
+      ],
+      [
+        11.909231658646561,
+        0.292431221308542,
+        8.213241667992893
+      ],
+      [
+        19.751495375857353,
+        0.5285442228796037,
+        11.375313234819606
+      ]
+    ],
+    "target_nonzero_rate": [
+      [
+        0.3679163034001744,
+        0.09241499564080209,
+        0.05056669572798605
+      ],
+      [
+        0.36400651465798045,
+        0.20602605863192183,
+        0.07736156351791532
+      ],
+      [
+        0.3820408163265306,
+        0.2677551020408163,
+        0.10775510204081633
+      ]
+    ],
+    "target_abs_q75": [
+      [
+        1.7739057540893555,
+        0.0,
+        0.0
+      ],
+      [
+        2.836935043334961,
+        0.0,
+        0.0
+      ],
+      [
+        3.3794174194335938,
+        0.0022835731506347656,
+        0.0
+      ]
+    ],
+    "valid_target_rate": [
+      [
+        0.9183346677341874,
+        0.9183346677341874,
+        0.9183346677341874
+      ],
+      [
+        0.9831865492393915,
+        0.9831865492393915,
+        0.9831865492393915
+      ],
+      [
+        0.9807846277021617,
+        0.9807846277021617,
+        0.9807846277021617
+      ]
+    ],
+    "maximum_overshoot_sec": 104.31666564941406,
+    "mean_action_hamming_distance": 1.433146517213771
+  },
+  "ensemble_ranking": {
+    "decision_states": 413.0,
+    "model_mean_regret": 0.28844438912695947,
+    "baseline_mean_regret": 0.441822819464412,
+    "regret_reduction": 0.34714918193537736,
+    "top1_agreement": 0.48184019370460046,
+    "random_top1": 0.2536319612590799
+  },
+  "individual_model_rankings": [
+    {
+      "decision_states": 413.0,
+      "model_mean_regret": 0.33036274174476526,
+      "baseline_mean_regret": 0.4418228147261283,
+      "regret_reduction": 0.2522732400101464,
+      "top1_agreement": 0.42857142857142855,
+      "random_top1": 0.2536319612590799
+    },
+    {
+      "decision_states": 413.0,
+      "model_mean_regret": 0.31756994557842494,
+      "baseline_mean_regret": 0.4418228147261283,
+      "regret_reduction": 0.2812278248345407,
+      "top1_agreement": 0.423728813559322,
+      "random_top1": 0.2536319612590799
+    },
+    {
+      "decision_states": 413.0,
+      "model_mean_regret": 0.3112449998227158,
+      "baseline_mean_regret": 0.4418228147261283,
+      "regret_reduction": 0.29554339556764053,
+      "top1_agreement": 0.4745762711864407,
+      "random_top1": 0.2536319612590799
+    }
+  ],
+  "episode_results": [
+    {
+      "episode_id": 0,
+      "decision_states": 35.0,
+      "model_mean_regret": 0.060593064229898935,
+      "baseline_mean_regret": 0.26689146347652404,
+      "regret_reduction": 0.7729673949079726,
+      "top1_agreement": 0.5714285714285714,
+      "random_top1": 0.2523809523809524
+    },
+    {
+      "episode_id": 1,
+      "decision_states": 35.0,
+      "model_mean_regret": 0.055337497527941676,
+      "baseline_mean_regret": 0.3751358171375743,
+      "regret_reduction": 0.8524867661259665,
+      "top1_agreement": 0.5142857142857142,
+      "random_top1": 0.25
+    },
+    {
+      "episode_id": 2,
+      "decision_states": 34.0,
+      "model_mean_regret": 0.36310659504627746,
+      "baseline_mean_regret": 0.5109048142171708,
+      "regret_reduction": 0.2892871921697505,
+      "top1_agreement": 0.38235294117647056,
+      "random_top1": 0.25735294117647056
+    },
+    {
+      "episode_id": 3,
+      "decision_states": 33.0,
+      "model_mean_regret": 0.5229793353296082,
+      "baseline_mean_regret": 0.592239607100252,
+      "regret_reduction": 0.11694636924024526,
+      "top1_agreement": 0.5757575757575758,
+      "random_top1": 0.25
+    },
+    {
+      "episode_id": 4,
+      "decision_states": 34.0,
+      "model_mean_regret": 0.10373822043262881,
+      "baseline_mean_regret": 0.17528872280961932,
+      "regret_reduction": 0.40818656916509877,
+      "top1_agreement": 0.5588235294117647,
+      "random_top1": 0.25
+    },
+    {
+      "episode_id": 5,
+      "decision_states": 34.0,
+      "model_mean_regret": 0.06012837464796423,
+      "baseline_mean_regret": 0.1786732314268599,
+      "regret_reduction": 0.6634729546905975,
+      "top1_agreement": 0.38235294117647056,
+      "random_top1": 0.25735294117647056
+    },
+    {
+      "episode_id": 6,
+      "decision_states": 34.0,
+      "model_mean_regret": 0.21709234347490447,
+      "baseline_mean_regret": 0.22523661211572205,
+      "regret_reduction": 0.036158724659884345,
+      "top1_agreement": 0.5882352941176471,
+      "random_top1": 0.2598039215686274
+    },
+    {
+      "episode_id": 7,
+      "decision_states": 35.0,
+      "model_mean_regret": 0.2512801136313167,
+      "baseline_mean_regret": 0.3286195081741011,
+      "regret_reduction": 0.235346327953879,
+      "top1_agreement": 0.4857142857142857,
+      "random_top1": 0.2666666666666666
+    },
+    {
+      "episode_id": 8,
+      "decision_states": 35.0,
+      "model_mean_regret": 0.20552540315019097,
+      "baseline_mean_regret": 0.5185857762953561,
+      "regret_reduction": 0.6036809867435783,
+      "top1_agreement": 0.5142857142857142,
+      "random_top1": 0.25
+    },
+    {
+      "episode_id": 9,
+      "decision_states": 35.0,
+      "model_mean_regret": 0.4162253086511267,
+      "baseline_mean_regret": 0.5833450087693711,
+      "regret_reduction": 0.2864851804780182,
+      "top1_agreement": 0.37142857142857144,
+      "random_top1": 0.25
+    },
+    {
+      "episode_id": 10,
+      "decision_states": 35.0,
+      "model_mean_regret": 0.5983899692633791,
+      "baseline_mean_regret": 0.5447678061131163,
+      "regret_reduction": -0.09843122620048628,
+      "top1_agreement": 0.34285714285714286,
+      "random_top1": 0.25
+    },
+    {
+      "episode_id": 11,
+      "decision_states": 34.0,
+      "model_mean_regret": 0.6180496772121163,
+      "baseline_mean_regret": 1.0075974754801078,
+      "regret_reduction": 0.38661053421394964,
+      "top1_agreement": 0.5,
+      "random_top1": 0.25
+    }
+  ],
+  "episode_bootstrap": {
+    "replicates": 5000.0,
+    "mean": 0.34840598943132844,
+    "ci_low": 0.1978414274479598,
+    "ci_high": 0.5060821970973184,
+    "p_reduction_le_zero": 0.0
+  },
+  "positive_episode_count": 11,
+  "criteria": [
+    {
+      "criterion": "Exactly 12 untouched complete trajectories are evaluated",
+      "passed": true
+    },
+    {
+      "criterion": "At least 1000 paired candidate samples are available",
+      "passed": true
+    },
+    {
+      "criterion": "At least 350 complete terminal decision states are ranked",
+      "passed": true
+    },
+    {
+      "criterion": "Every target component has at least 85% valid physical-time coverage",
+      "passed": true
+    },
+    {
+      "criterion": "Terminal energy and task effects each have at least 10% nonzero coverage",
+      "passed": true
+    },
+    {
+      "criterion": "Ensemble terminal ranking regret is reduced by at least 15%",
+      "passed": true
+    },
+    {
+      "criterion": "Trajectory-bootstrap 95% interval for regret reduction is above zero",
+      "passed": true
+    },
+    {
+      "criterion": "At least 9 of 12 trajectories have positive regret reduction",
+      "passed": true
+    },
+    {
+      "criterion": "Top-1 agreement exceeds random choice by at least 8 percentage points",
+      "passed": true
+    },
+    {
+      "criterion": "At least two of three frozen model seeds independently reduce regret",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

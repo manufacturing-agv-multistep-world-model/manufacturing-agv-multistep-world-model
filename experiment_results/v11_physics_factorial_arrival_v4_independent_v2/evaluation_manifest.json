@@ -1,0 +1,34 @@
+{
+  "protocol": "v11_arrival_v4_physics_factorial_independent_open_loop",
+  "transition_schema_version": "assignment_visible_congestion_independent_arrival_streams_v4",
+  "test_seed": 27413,
+  "episodes": 20,
+  "max_steps": 400,
+  "sequence_stride": 5,
+  "horizons": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "primary_metrics": [
+    "delta_time_sec",
+    "delta_energy_wh",
+    "blocked_delta"
+  ],
+  "transition_count": 8000,
+  "sequence_count": 1580,
+  "model_seeds": [
+    42,
+    43,
+    44
+  ],
+  "conditions": [
+    "Full",
+    "No physics loss",
+    "No physical features",
+    "Data-only graph"
+  ],
+  "parameter_count": 299401,
+  "device": "cpu"
+}

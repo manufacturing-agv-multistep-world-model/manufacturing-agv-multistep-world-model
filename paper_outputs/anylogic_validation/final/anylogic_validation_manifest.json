@@ -1,0 +1,34 @@
+{
+  "protocol": "cross_platform_kinematics_task_flow_validation_v1",
+  "formal_horizons_h": [
+    1.0,
+    4.0,
+    8.0
+  ],
+  "scenarios": [
+    "steady",
+    "rush"
+  ],
+  "anylogic_seeds": [
+    1,
+    2,
+    3
+  ],
+  "python_reference_seeds": [
+    41001,
+    41002,
+    41003,
+    41004,
+    41005,
+    41006,
+    41007,
+    41008,
+    41009,
+    41010
+  ],
+  "anylogic_formal_rows": 18,
+  "required_combinations_missing": 0,
+  "anylogic_source_sha256": "89e4e39f6e1846631add0c864adc3c57345e6740d22eeae241c817790fb3eeb2",
+  "python_reference_sha256": "08d7bf94dcccf937e5d2d34dedcf51aeba99761f3b9fafb8ed53d820d2584f82",
+  "scope": "Independent road-network, kinematics, capacity, and congestion-trend validation; no nonlinear-battery or learned-policy validation claim."
+}

@@ -1,0 +1,58 @@
+{
+  "source": "frozen_v145_shadow_confirmation_cache",
+  "recommendations": 116,
+  "frozen_utility_margin": 0.15,
+  "joint_action_hamming_distribution": {
+    "1": {
+      "recommendations": 3,
+      "beneficial": 2
+    },
+    "3": {
+      "recommendations": 113,
+      "beneficial": 85
+    }
+  },
+  "single_agv_recommendation_fraction": 0.02586206896551724,
+  "single_agv_beneficial_precision": 0.6666666666666666,
+  "deadlock_active_recommendations": 84,
+  "deadlock_inactive_recommendations": 32,
+  "deadlock_inactive_beneficial_precision": 0.6875,
+  "zero_wait_recommendations": 1,
+  "all_wait_recommendations": 113,
+  "all_wait_beneficial_precision": 0.7522123893805309,
+  "deadlock_inactive_non_all_wait_recommendations": 3,
+  "deadlock_inactive_non_all_wait_beneficial_precision": 0.6666666666666666,
+  "execution_threshold_audit": {
+    "0.15": {
+      "recommendations": 116,
+      "beneficial_precision": 0.75,
+      "mean_true_gain": 0.3509158862304095
+    },
+    "0.20": {
+      "recommendations": 102,
+      "beneficial_precision": 0.7254901960784313,
+      "mean_true_gain": 0.38260259325148116
+    },
+    "0.25": {
+      "recommendations": 81,
+      "beneficial_precision": 0.7407407407407407,
+      "mean_true_gain": 0.38043434321693503
+    },
+    "0.30": {
+      "recommendations": 64,
+      "beneficial_precision": 0.75,
+      "mean_true_gain": 0.43413920150396734
+    },
+    "0.40": {
+      "recommendations": 31,
+      "beneficial_precision": 0.7419354838709677,
+      "mean_true_gain": 0.5561280123168423
+    }
+  },
+  "ensemble_lower_bound_audit": {
+    "minimum_member_margin": 0.15,
+    "recommendations": 90,
+    "beneficial_precision": 0.7222222222222222,
+    "mean_true_gain": 0.3560768322935069
+  }
+}

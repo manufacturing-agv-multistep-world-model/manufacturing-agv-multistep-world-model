@@ -1,0 +1,455 @@
+{
+  "name": "Simplified CAD-derived AGV scenario",
+  "design_rules": [
+    "Preserve CAD trunk A-G1-G2-G3-G4-G5-G6-B.",
+    "Do not over-discretize long straight corridors; only one mid-control node is used on G2-G3.",
+    "All added branches are horizontal or vertical.",
+    "Use baseline capacities first, then stress capacities for bottleneck experiments."
+  ],
+  "nodes": [
+    {
+      "node_id": 0,
+      "name": "A",
+      "x_m": -6.0,
+      "y_m": 0.0,
+      "role": "pickup",
+      "cad_basis": "CAD-A",
+      "note": "Main pickup / outbound endpoint"
+    },
+    {
+      "node_id": 1,
+      "name": "G1",
+      "x_m": 4.0,
+      "y_m": 0.0,
+      "role": "guide",
+      "cad_basis": "CAD-G1",
+      "note": "CAD key point"
+    },
+    {
+      "node_id": 2,
+      "name": "G2",
+      "x_m": 4.0,
+      "y_m": 11.6,
+      "role": "guide",
+      "cad_basis": "CAD-G2",
+      "note": "CAD key point"
+    },
+    {
+      "node_id": 3,
+      "name": "G2_G3_Mid",
+      "x_m": 4.0,
+      "y_m": 30.0,
+      "role": "control",
+      "cad_basis": "CAD-G2-G3",
+      "note": "Single mid-control point on the long vertical corridor"
+    },
+    {
+      "node_id": 4,
+      "name": "G3",
+      "x_m": 4.0,
+      "y_m": 46.6,
+      "role": "guide",
+      "cad_basis": "CAD-G3",
+      "note": "CAD key point"
+    },
+    {
+      "node_id": 5,
+      "name": "G4",
+      "x_m": 25.0,
+      "y_m": 46.6,
+      "role": "guide",
+      "cad_basis": "CAD-G4",
+      "note": "CAD key point"
+    },
+    {
+      "node_id": 6,
+      "name": "G5",
+      "x_m": 25.0,
+      "y_m": 50.6,
+      "role": "guide",
+      "cad_basis": "CAD-G5",
+      "note": "CAD key point"
+    },
+    {
+      "node_id": 7,
+      "name": "G6",
+      "x_m": 30.0,
+      "y_m": 50.6,
+      "role": "guide",
+      "cad_basis": "CAD-G6",
+      "note": "CAD key point"
+    },
+    {
+      "node_id": 8,
+      "name": "B",
+      "x_m": 30.0,
+      "y_m": 71.6,
+      "role": "warehouse",
+      "cad_basis": "CAD-B",
+      "note": "Warehouse endpoint"
+    },
+    {
+      "node_id": 9,
+      "name": "Home1",
+      "x_m": -14.0,
+      "y_m": -4.0,
+      "role": "home",
+      "cad_basis": "Near-A",
+      "note": "AGV parking slot"
+    },
+    {
+      "node_id": 10,
+      "name": "Home2",
+      "x_m": -14.0,
+      "y_m": 0.0,
+      "role": "home",
+      "cad_basis": "Near-A",
+      "note": "AGV parking slot"
+    },
+    {
+      "node_id": 11,
+      "name": "Home3",
+      "x_m": -14.0,
+      "y_m": 4.0,
+      "role": "home",
+      "cad_basis": "Near-A",
+      "note": "AGV parking slot"
+    },
+    {
+      "node_id": 12,
+      "name": "Charge",
+      "x_m": -6.0,
+      "y_m": -8.0,
+      "role": "charge",
+      "cad_basis": "Near-A",
+      "note": "Charging bay"
+    },
+    {
+      "node_id": 13,
+      "name": "P1_Packaging",
+      "x_m": -10.0,
+      "y_m": 11.6,
+      "role": "workstation",
+      "cad_basis": "CAD-left-zone",
+      "note": "Packaging station nearest to A"
+    },
+    {
+      "node_id": 14,
+      "name": "P2_Labeling",
+      "x_m": -10.0,
+      "y_m": 30.0,
+      "role": "workstation",
+      "cad_basis": "CAD-left-zone",
+      "note": "Labeling and coding station"
+    },
+    {
+      "node_id": 15,
+      "name": "PrepBuffer",
+      "x_m": -10.0,
+      "y_m": 46.6,
+      "role": "buffer",
+      "cad_basis": "CAD-left-zone",
+      "note": "Buffer preparation area"
+    },
+    {
+      "node_id": 16,
+      "name": "PassingBuffer",
+      "x_m": -6.0,
+      "y_m": 8.0,
+      "role": "buffer",
+      "cad_basis": "Near-A",
+      "note": "Passing / waiting pocket above A"
+    },
+    {
+      "node_id": 17,
+      "name": "MaterialBuffer",
+      "x_m": 14.0,
+      "y_m": 50.6,
+      "role": "buffer",
+      "cad_basis": "CAD-2#warehouse-zone",
+      "note": "Material buffer left of G5 and above G3"
+    },
+    {
+      "node_id": 18,
+      "name": "W1_Storage",
+      "x_m": 18.0,
+      "y_m": 71.6,
+      "role": "warehouse_slot",
+      "cad_basis": "Near-B",
+      "note": "Warehouse storage slot"
+    },
+    {
+      "node_id": 19,
+      "name": "W2_Storage",
+      "x_m": 42.0,
+      "y_m": 71.6,
+      "role": "warehouse_slot",
+      "cad_basis": "Near-B",
+      "note": "Warehouse storage slot"
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": 0,
+      "src": "Home1",
+      "dst": "Home2",
+      "edge_type": "home_lane",
+      "capacity_baseline": 3,
+      "capacity_stress": 3,
+      "speed_limit_mps": 1.2,
+      "note": "Vertical parking lane"
+    },
+    {
+      "edge_id": 1,
+      "src": "Home2",
+      "dst": "Home3",
+      "edge_type": "home_lane",
+      "capacity_baseline": 3,
+      "capacity_stress": 3,
+      "speed_limit_mps": 1.2,
+      "note": "Vertical parking lane"
+    },
+    {
+      "edge_id": 2,
+      "src": "Home2",
+      "dst": "A",
+      "edge_type": "home_lane",
+      "capacity_baseline": 3,
+      "capacity_stress": 3,
+      "speed_limit_mps": 1.2,
+      "note": "Horizontal parking connection"
+    },
+    {
+      "edge_id": 3,
+      "src": "A",
+      "dst": "Charge",
+      "edge_type": "charge_lane",
+      "capacity_baseline": 2,
+      "capacity_stress": 2,
+      "speed_limit_mps": 1.2,
+      "note": "Vertical charging link"
+    },
+    {
+      "edge_id": 4,
+      "src": "A",
+      "dst": "G1",
+      "edge_type": "cad_trunk",
+      "capacity_baseline": 3,
+      "capacity_stress": 2,
+      "speed_limit_mps": 1.2,
+      "note": "CAD trunk"
+    },
+    {
+      "edge_id": 5,
+      "src": "G1",
+      "dst": "G2",
+      "edge_type": "cad_trunk_narrow",
+      "capacity_baseline": 2,
+      "capacity_stress": 1,
+      "speed_limit_mps": 1.2,
+      "note": "Vertical narrow trunk"
+    },
+    {
+      "edge_id": 6,
+      "src": "G2",
+      "dst": "G2_G3_Mid",
+      "edge_type": "cad_trunk_narrow",
+      "capacity_baseline": 2,
+      "capacity_stress": 1,
+      "speed_limit_mps": 1.2,
+      "note": "Long vertical corridor, upper segment"
+    },
+    {
+      "edge_id": 7,
+      "src": "G2_G3_Mid",
+      "dst": "G3",
+      "edge_type": "cad_trunk_narrow",
+      "capacity_baseline": 2,
+      "capacity_stress": 1,
+      "speed_limit_mps": 1.2,
+      "note": "Long vertical corridor, lower segment"
+    },
+    {
+      "edge_id": 8,
+      "src": "G3",
+      "dst": "G4",
+      "edge_type": "cad_trunk_narrow",
+      "capacity_baseline": 2,
+      "capacity_stress": 1,
+      "speed_limit_mps": 1.2,
+      "note": "Horizontal corridor near 2# warehouse"
+    },
+    {
+      "edge_id": 9,
+      "src": "G4",
+      "dst": "G5",
+      "edge_type": "cad_trunk_narrow",
+      "capacity_baseline": 2,
+      "capacity_stress": 1,
+      "speed_limit_mps": 1.2,
+      "note": "Short vertical turn"
+    },
+    {
+      "edge_id": 10,
+      "src": "G5",
+      "dst": "G6",
+      "edge_type": "cad_trunk_narrow",
+      "capacity_baseline": 2,
+      "capacity_stress": 1,
+      "speed_limit_mps": 1.2,
+      "note": "Short horizontal junction"
+    },
+    {
+      "edge_id": 11,
+      "src": "G6",
+      "dst": "B",
+      "edge_type": "cad_trunk",
+      "capacity_baseline": 3,
+      "capacity_stress": 1,
+      "speed_limit_mps": 1.2,
+      "note": "Warehouse entry corridor"
+    },
+    {
+      "edge_id": 12,
+      "src": "G2",
+      "dst": "P1_Packaging",
+      "edge_type": "workstation_branch",
+      "capacity_baseline": 1,
+      "capacity_stress": 1,
+      "speed_limit_mps": 1.2,
+      "note": "Horizontal branch"
+    },
+    {
+      "edge_id": 13,
+      "src": "G2_G3_Mid",
+      "dst": "P2_Labeling",
+      "edge_type": "workstation_branch",
+      "capacity_baseline": 1,
+      "capacity_stress": 1,
+      "speed_limit_mps": 1.2,
+      "note": "Horizontal branch"
+    },
+    {
+      "edge_id": 14,
+      "src": "G3",
+      "dst": "PrepBuffer",
+      "edge_type": "buffer_branch",
+      "capacity_baseline": 1,
+      "capacity_stress": 1,
+      "speed_limit_mps": 1.2,
+      "note": "Horizontal buffer branch"
+    },
+    {
+      "edge_id": 15,
+      "src": "A",
+      "dst": "PassingBuffer",
+      "edge_type": "waiting_branch",
+      "capacity_baseline": 1,
+      "capacity_stress": 1,
+      "speed_limit_mps": 1.2,
+      "note": "Vertical waiting pocket above A"
+    },
+    {
+      "edge_id": 16,
+      "src": "G5",
+      "dst": "MaterialBuffer",
+      "edge_type": "buffer_branch",
+      "capacity_baseline": 2,
+      "capacity_stress": 1,
+      "speed_limit_mps": 1.2,
+      "note": "Horizontal material buffer branch"
+    },
+    {
+      "edge_id": 17,
+      "src": "B",
+      "dst": "W1_Storage",
+      "edge_type": "warehouse_branch",
+      "capacity_baseline": 3,
+      "capacity_stress": 2,
+      "speed_limit_mps": 1.2,
+      "note": "Horizontal warehouse slot branch"
+    },
+    {
+      "edge_id": 18,
+      "src": "B",
+      "dst": "W2_Storage",
+      "edge_type": "warehouse_branch",
+      "capacity_baseline": 3,
+      "capacity_stress": 2,
+      "speed_limit_mps": 1.2,
+      "note": "Horizontal warehouse slot branch"
+    }
+  ],
+  "task_flows": [
+    {
+      "task_id": "T01",
+      "origin": "A",
+      "destination": "B",
+      "task_class": "main_inbound",
+      "steady_rate_per_hour": 12,
+      "rush_rate_per_hour": 30,
+      "load_kg": 120,
+      "priority": 1
+    },
+    {
+      "task_id": "T02",
+      "origin": "A",
+      "destination": "W1_Storage",
+      "task_class": "warehouse_slotting",
+      "steady_rate_per_hour": 4,
+      "rush_rate_per_hour": 10,
+      "load_kg": 120,
+      "priority": 1
+    },
+    {
+      "task_id": "T03",
+      "origin": "A",
+      "destination": "W2_Storage",
+      "task_class": "warehouse_slotting",
+      "steady_rate_per_hour": 4,
+      "rush_rate_per_hour": 10,
+      "load_kg": 120,
+      "priority": 1
+    },
+    {
+      "task_id": "T04",
+      "origin": "B",
+      "destination": "PrepBuffer",
+      "task_class": "buffer_replenishment",
+      "steady_rate_per_hour": 3,
+      "rush_rate_per_hour": 8,
+      "load_kg": 80,
+      "priority": 2
+    },
+    {
+      "task_id": "T05",
+      "origin": "B",
+      "destination": "P1_Packaging",
+      "task_class": "packaging_supply",
+      "steady_rate_per_hour": 5,
+      "rush_rate_per_hour": 14,
+      "load_kg": 60,
+      "priority": 2
+    },
+    {
+      "task_id": "T06",
+      "origin": "P2_Labeling",
+      "destination": "B",
+      "task_class": "labeled_goods_return",
+      "steady_rate_per_hour": 2,
+      "rush_rate_per_hour": 6,
+      "load_kg": 100,
+      "priority": 2
+    },
+    {
+      "task_id": "T07",
+      "origin": "MaterialBuffer",
+      "destination": "P2_Labeling",
+      "task_class": "local_supply",
+      "steady_rate_per_hour": 4,
+      "rush_rate_per_hour": 10,
+      "load_kg": 60,
+      "priority": 3
+    }
+  ]
+}

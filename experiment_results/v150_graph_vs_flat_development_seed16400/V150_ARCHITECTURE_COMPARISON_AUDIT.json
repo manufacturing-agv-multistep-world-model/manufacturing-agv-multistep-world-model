@@ -1,0 +1,251 @@
+{
+  "protocol": "v150_frozen_paired_graph_vs_flat_ranking_v1",
+  "phase": "development",
+  "status": "implementation_only",
+  "data_seed": 16400,
+  "episodes": 3,
+  "samples": 89,
+  "cache_source": "cache",
+  "cache_signature": {
+    "schema": "v150_frozen_paired_graph_vs_flat_ranking_v1",
+    "phase": "development",
+    "config": {
+      "episodes": 3,
+      "behavior_steps": 1800,
+      "warmup_steps": 600,
+      "sample_stride": 120,
+      "candidates_per_state": 3,
+      "exploration_rate": 0.35,
+      "horizons_sec": [
+        120.0,
+        360.0,
+        720.0
+      ],
+      "max_rollout_steps": 500,
+      "maximum_relative_overshoot": 0.35,
+      "maximum_absolute_overshoot_sec": 60.0,
+      "seed": 16400
+    },
+    "training_data_disjoint": true,
+    "model_parameters_frozen": true,
+    "primary_endpoint": "paired_terminal_ranking_regret_difference"
+  },
+  "graph_checkpoints": [
+    "world_model_runs\\pi_gwm_counterfactual_v141_seed42\\physics_graph_world_model_counterfactual.pt",
+    "world_model_runs\\pi_gwm_counterfactual_v141_seed43\\physics_graph_world_model_counterfactual.pt",
+    "world_model_runs\\pi_gwm_counterfactual_v141_seed44\\physics_graph_world_model_counterfactual.pt"
+  ],
+  "flat_checkpoints": [
+    "world_model_runs\\flat_mlp_counterfactual_v150_seed42\\flat_counterfactual_baseline.pt",
+    "world_model_runs\\flat_mlp_counterfactual_v150_seed43\\flat_counterfactual_baseline.pt",
+    "world_model_runs\\flat_mlp_counterfactual_v150_seed44\\flat_counterfactual_baseline.pt"
+  ],
+  "graph_head_parameter_counts": [
+    56457,
+    56457,
+    56457
+  ],
+  "flat_parameter_counts": [
+    56457,
+    56457,
+    56457
+  ],
+  "same_training_scale": true,
+  "dataset_summary": {
+    "samples": 89,
+    "episodes": 3,
+    "target_mean": [
+      [
+        -1.9402630793583857,
+        -0.09126625432596579,
+        0.0
+      ],
+      [
+        -1.2582711637689825,
+        0.000343902057476258,
+        0.0
+      ],
+      [
+        -1.8359210410814606,
+        -0.03420512461930179,
+        0.0
+      ]
+    ],
+    "target_std": [
+      [
+        5.063389033887009,
+        0.32527946984650763,
+        0.0
+      ],
+      [
+        6.173060946313686,
+        0.11051111648796264,
+        0.0
+      ],
+      [
+        12.560186257062842,
+        0.4045366043142607,
+        0.0
+      ]
+    ],
+    "target_nonzero_rate": [
+      [
+        0.2857142857142857,
+        0.14285714285714285,
+        0.0
+      ],
+      [
+        0.29213483146067415,
+        0.25842696629213485,
+        0.0
+      ],
+      [
+        0.25842696629213485,
+        0.2247191011235955,
+        0.0
+      ]
+    ],
+    "target_abs_q75": [
+      [
+        0.42722320556640625,
+        0.0,
+        0.0
+      ],
+      [
+        1.0904541015625,
+        0.005356848239898682,
+        0.0
+      ],
+      [
+        0.2356414794921875,
+        0.0,
+        0.0
+      ]
+    ],
+    "valid_target_rate": [
+      [
+        0.8651685393258427,
+        0.8651685393258427,
+        0.8651685393258427
+      ],
+      [
+        1.0,
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0,
+        1.0
+      ]
+    ],
+    "maximum_overshoot_sec": 65.98332977294922,
+    "mean_action_hamming_distance": 1.449438202247191
+  },
+  "graph_ranking": {
+    "decision_states": 30.0,
+    "model_mean_regret": 0.08165166744074935,
+    "baseline_mean_regret": 0.3352087756609482,
+    "regret_reduction": 0.7564154838137737,
+    "top1_agreement": 0.6333333333333333,
+    "random_top1": 0.25277777777777777
+  },
+  "flat_ranking": {
+    "decision_states": 30.0,
+    "model_mean_regret": 0.11815891047620666,
+    "baseline_mean_regret": 0.3352087756609482,
+    "regret_reduction": 0.647506512193105,
+    "top1_agreement": 0.5,
+    "random_top1": 0.25277777777777777
+  },
+  "paired_comparison": {
+    "mean_difference": 0.03650724303545732,
+    "positive_episode_count": 2
+  },
+  "episode_results": [
+    {
+      "episode_id": 0,
+      "decision_states": 10,
+      "graph_mean_regret": 0.24495500232224807,
+      "flat_mean_regret": 0.27994698785703126,
+      "flat_minus_graph_regret": 0.034991985534783235,
+      "graph_top1": 0.5,
+      "flat_top1": 0.5
+    },
+    {
+      "episode_id": 1,
+      "decision_states": 10,
+      "graph_mean_regret": 0.0,
+      "flat_mean_regret": 0.0,
+      "flat_minus_graph_regret": 0.0,
+      "graph_top1": 0.6,
+      "flat_top1": 0.5
+    },
+    {
+      "episode_id": 2,
+      "decision_states": 10,
+      "graph_mean_regret": 0.0,
+      "flat_mean_regret": 0.07452974357158873,
+      "flat_minus_graph_regret": 0.07452974357158873,
+      "graph_top1": 0.8,
+      "flat_top1": 0.5
+    }
+  ],
+  "paired_episode_bootstrap": {
+    "replicates": 2000,
+    "mean": 0.036366517464567844,
+    "ci_low": 0.0,
+    "ci_high": 0.07452974357158873,
+    "p_flat_minus_graph_le_zero": 0.042
+  },
+  "integrity_criteria": [
+    {
+      "criterion": "The frozen number of complete trajectories is present",
+      "passed": true
+    },
+    {
+      "criterion": "The frozen minimum paired candidate sample count is met",
+      "passed": true
+    },
+    {
+      "criterion": "The frozen minimum complete decision-state count is met",
+      "passed": true
+    },
+    {
+      "criterion": "Graph and flat methods rank identical state-action candidates",
+      "passed": true
+    },
+    {
+      "criterion": "All six frozen models use identical train-only target scales",
+      "passed": true
+    },
+    {
+      "criterion": "All graph heads and flat models have exactly 56,457 trainable parameters",
+      "passed": true
+    },
+    {
+      "criterion": "Every target component has at least 85% physical-time coverage",
+      "passed": true
+    }
+  ],
+  "integrity_passed": true,
+  "scientific_criteria": [
+    {
+      "criterion": "Full V14.1 has lower mean regret than the flat MLP",
+      "passed": true
+    },
+    {
+      "criterion": "The paired trajectory-bootstrap 95% interval is above zero",
+      "passed": false
+    },
+    {
+      "criterion": "At least one of three development trajectories favors Full V14.1",
+      "passed": true
+    },
+    {
+      "criterion": "Full V14.1 top-1 agreement is not below the flat MLP",
+      "passed": true
+    }
+  ],
+  "scientific_support": null
+}

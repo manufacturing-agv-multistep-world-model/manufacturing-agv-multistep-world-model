@@ -1,0 +1,311 @@
+{
+  "protocol": "v145_preregistered_nonacting_shadow_recommender_confirmation_parallel_v2",
+  "status": "preregistered_nonacting_shadow_confirmation",
+  "data_seed": 15600,
+  "episodes": 12,
+  "samples": 1252,
+  "cache_source": "collected",
+  "checkpoints": [
+    "world_model_runs\\pi_gwm_counterfactual_v141_seed42\\physics_graph_world_model_counterfactual.pt",
+    "world_model_runs\\pi_gwm_counterfactual_v141_seed43\\physics_graph_world_model_counterfactual.pt",
+    "world_model_runs\\pi_gwm_counterfactual_v141_seed44\\physics_graph_world_model_counterfactual.pt"
+  ],
+  "recommendations_executed": false,
+  "unanimous_model_choice_required": true,
+  "frozen_normalized_utility_margin": 0.15,
+  "dataset_summary": {
+    "samples": 1252,
+    "episodes": 12,
+    "target_mean": [
+      [
+        -0.633857722321107,
+        -0.01631602368126913,
+        -0.07925756091572768
+      ],
+      [
+        -0.3472116701152611,
+        0.0011409189695231951,
+        -0.13026194560751989
+      ],
+      [
+        -0.4654560678373507,
+        -0.008582335419771148,
+        -0.39260078232462814
+      ]
+    ],
+    "target_std": [
+      [
+        6.596077782514848,
+        0.16208909299455287,
+        2.8528967122089806
+      ],
+      [
+        10.824302842342915,
+        0.34713737588879917,
+        6.398806445601683
+      ],
+      [
+        17.439151376508587,
+        0.5725112920617041,
+        8.378477423455408
+      ]
+    ],
+    "target_nonzero_rate": [
+      [
+        0.35617673579801623,
+        0.09287646528403967,
+        0.0369702434625789
+      ],
+      [
+        0.35486508585445625,
+        0.2044153720359771,
+        0.05151267375306623
+      ],
+      [
+        0.36910569105691055,
+        0.25934959349593495,
+        0.08211382113821138
+      ]
+    ],
+    "target_abs_q75": [
+      [
+        1.2052974700927734,
+        0.0,
+        0.0
+      ],
+      [
+        1.971893310546875,
+        0.0,
+        0.0
+      ],
+      [
+        3.189067840576172,
+        0.00094623863697052,
+        0.0
+      ]
+    ],
+    "valid_target_rate": [
+      [
+        0.8857827476038339,
+        0.8857827476038339,
+        0.8857827476038339
+      ],
+      [
+        0.9768370607028753,
+        0.9768370607028753,
+        0.9768370607028753
+      ],
+      [
+        0.9824281150159745,
+        0.9824281150159745,
+        0.9824281150159745
+      ]
+    ],
+    "maximum_overshoot_sec": 103.0,
+    "mean_action_hamming_distance": 1.4241214057507987
+  },
+  "shadow_summary": {
+    "eligible_states": 413.0,
+    "recommendations": 116.0,
+    "coverage": 0.28087167070217917,
+    "benefit_precision": 0.75,
+    "false_recommendation_rate": 0.25,
+    "mean_true_gain": 0.3509158862304095,
+    "median_true_gain": 0.18956722505390644,
+    "mean_predicted_gain": 0.32774039366481234
+  },
+  "episode_results": [
+    {
+      "episode_id": 0,
+      "eligible_states": 35.0,
+      "recommendations": 5.0,
+      "coverage": 0.14285714285714285,
+      "benefit_precision": 0.8,
+      "false_recommendation_rate": 0.2,
+      "mean_true_gain": 0.6800440825521946,
+      "median_true_gain": 0.28850722312927246,
+      "mean_predicted_gain": 0.34888953653474647
+    },
+    {
+      "episode_id": 1,
+      "eligible_states": 35.0,
+      "recommendations": 8.0,
+      "coverage": 0.22857142857142856,
+      "benefit_precision": 0.625,
+      "false_recommendation_rate": 0.375,
+      "mean_true_gain": 0.22272128816257464,
+      "median_true_gain": 0.09707372868433595,
+      "mean_predicted_gain": 0.2642881340580061
+    },
+    {
+      "episode_id": 2,
+      "eligible_states": 34.0,
+      "recommendations": 12.0,
+      "coverage": 0.35294117647058826,
+      "benefit_precision": 0.75,
+      "false_recommendation_rate": 0.25,
+      "mean_true_gain": 0.5467574210488237,
+      "median_true_gain": 0.5075615863315761,
+      "mean_predicted_gain": 0.3763628263259307
+    },
+    {
+      "episode_id": 3,
+      "eligible_states": 34.0,
+      "recommendations": 8.0,
+      "coverage": 0.23529411764705882,
+      "benefit_precision": 0.75,
+      "false_recommendation_rate": 0.25,
+      "mean_true_gain": 0.1203024733113125,
+      "median_true_gain": 0.05032606702297926,
+      "mean_predicted_gain": 0.3357154190404496
+    },
+    {
+      "episode_id": 4,
+      "eligible_states": 34.0,
+      "recommendations": 10.0,
+      "coverage": 0.29411764705882354,
+      "benefit_precision": 0.7,
+      "false_recommendation_rate": 0.3,
+      "mean_true_gain": 0.40141938496381047,
+      "median_true_gain": 0.16303655318915844,
+      "mean_predicted_gain": 0.34703137034084647
+    },
+    {
+      "episode_id": 5,
+      "eligible_states": 35.0,
+      "recommendations": 11.0,
+      "coverage": 0.3142857142857143,
+      "benefit_precision": 0.9090909090909091,
+      "false_recommendation_rate": 0.09090909090909091,
+      "mean_true_gain": 0.4544208693233403,
+      "median_true_gain": 0.328553881496191,
+      "mean_predicted_gain": 0.31101221283615543
+    },
+    {
+      "episode_id": 6,
+      "eligible_states": 34.0,
+      "recommendations": 6.0,
+      "coverage": 0.17647058823529413,
+      "benefit_precision": 0.6666666666666666,
+      "false_recommendation_rate": 0.3333333333333333,
+      "mean_true_gain": 0.18804519972763956,
+      "median_true_gain": 0.15392166934907436,
+      "mean_predicted_gain": 0.3483880039873637
+    },
+    {
+      "episode_id": 7,
+      "eligible_states": 35.0,
+      "recommendations": 10.0,
+      "coverage": 0.2857142857142857,
+      "benefit_precision": 0.5,
+      "false_recommendation_rate": 0.5,
+      "mean_true_gain": 0.03644194565713406,
+      "median_true_gain": 0.06136492267251015,
+      "mean_predicted_gain": 0.3018998696274745
+    },
+    {
+      "episode_id": 8,
+      "eligible_states": 34.0,
+      "recommendations": 12.0,
+      "coverage": 0.35294117647058826,
+      "benefit_precision": 0.9166666666666666,
+      "false_recommendation_rate": 0.08333333333333333,
+      "mean_true_gain": 0.2642575204469419,
+      "median_true_gain": 0.22152095899218693,
+      "mean_predicted_gain": 0.3185001818718673
+    },
+    {
+      "episode_id": 9,
+      "eligible_states": 35.0,
+      "recommendations": 10.0,
+      "coverage": 0.2857142857142857,
+      "benefit_precision": 0.9,
+      "false_recommendation_rate": 0.1,
+      "mean_true_gain": 0.7458447445649654,
+      "median_true_gain": 0.5586144162807614,
+      "mean_predicted_gain": 0.32999539213875934
+    },
+    {
+      "episode_id": 10,
+      "eligible_states": 34.0,
+      "recommendations": 11.0,
+      "coverage": 0.3235294117647059,
+      "benefit_precision": 0.8181818181818182,
+      "false_recommendation_rate": 0.18181818181818182,
+      "mean_true_gain": 0.24361007112417032,
+      "median_true_gain": 0.10343535989522934,
+      "mean_predicted_gain": 0.34373136434816953
+    },
+    {
+      "episode_id": 11,
+      "eligible_states": 34.0,
+      "recommendations": 13.0,
+      "coverage": 0.38235294117647056,
+      "benefit_precision": 0.6153846153846154,
+      "false_recommendation_rate": 0.38461538461538464,
+      "mean_true_gain": 0.32199851577528393,
+      "median_true_gain": 0.048563051503151655,
+      "mean_predicted_gain": 0.3117907511739012
+    }
+  ],
+  "trajectory_bootstrap": {
+    "replicates": 5000.0,
+    "mean_gain_ci95": [
+      0.2422205239447802,
+      0.46522005737737854
+    ],
+    "precision_ci95": [
+      0.6694915254237288,
+      0.824
+    ],
+    "coverage_ci95": [
+      0.24038228155339805,
+      0.3188573700954398
+    ],
+    "p_mean_gain_le_zero": 0.0
+  },
+  "positive_episode_count": 12,
+  "criteria": [
+    {
+      "criterion": "Exactly 12 untouched complete trajectories are evaluated",
+      "passed": true
+    },
+    {
+      "criterion": "At least 1000 paired candidate samples are available",
+      "passed": true
+    },
+    {
+      "criterion": "At least 350 complete terminal decision states are eligible",
+      "passed": true
+    },
+    {
+      "criterion": "Every target component has at least 85% valid physical-time coverage",
+      "passed": true
+    },
+    {
+      "criterion": "At least 80 shadow recommendations are issued",
+      "passed": true
+    },
+    {
+      "criterion": "Recommendation coverage is between 15% and 45%",
+      "passed": true
+    },
+    {
+      "criterion": "At least 70% of recommendations have positive true utility",
+      "passed": true
+    },
+    {
+      "criterion": "Mean true normalized recommendation gain is positive",
+      "passed": true
+    },
+    {
+      "criterion": "Trajectory-bootstrap 95% mean-gain interval is above zero",
+      "passed": true
+    },
+    {
+      "criterion": "At least 9 of 12 trajectories have positive mean recommendation gain",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

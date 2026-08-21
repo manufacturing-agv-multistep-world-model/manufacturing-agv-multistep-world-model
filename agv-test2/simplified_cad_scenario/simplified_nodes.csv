@@ -1,0 +1,21 @@
+﻿node_id,node_name,x_m,y_m,role,cad_basis,is_home,is_pickup,is_warehouse,is_workstation,is_buffer,is_charge,note
+0,A,-6.0,0.0,pickup,CAD-A,0,1,0,0,0,0,Main pickup / outbound endpoint
+1,G1,4.0,0.0,guide,CAD-G1,0,0,0,0,0,0,CAD key point
+2,G2,4.0,11.6,guide,CAD-G2,0,0,0,0,0,0,CAD key point
+3,G2_G3_Mid,4.0,30.0,control,CAD-G2-G3,0,0,0,0,0,0,Single mid-control point on the long vertical corridor
+4,G3,4.0,46.6,guide,CAD-G3,0,0,0,0,0,0,CAD key point
+5,G4,25.0,46.6,guide,CAD-G4,0,0,0,0,0,0,CAD key point
+6,G5,25.0,50.6,guide,CAD-G5,0,0,0,0,0,0,CAD key point
+7,G6,30.0,50.6,guide,CAD-G6,0,0,0,0,0,0,CAD key point
+8,B,30.0,71.6,warehouse,CAD-B,0,0,1,0,0,0,Warehouse endpoint
+9,Home1,-14.0,-4.0,home,Near-A,1,0,0,0,0,0,AGV parking slot
+10,Home2,-14.0,0.0,home,Near-A,1,0,0,0,0,0,AGV parking slot
+11,Home3,-14.0,4.0,home,Near-A,1,0,0,0,0,0,AGV parking slot
+12,Charge,-6.0,-8.0,charge,Near-A,0,0,0,0,0,1,Charging bay
+13,P1_Packaging,-10.0,11.6,workstation,CAD-left-zone,0,1,0,1,0,0,Packaging station nearest to A
+14,P2_Labeling,-10.0,30.0,workstation,CAD-left-zone,0,1,0,1,0,0,Labeling and coding station
+15,PrepBuffer,-10.0,46.6,buffer,CAD-left-zone,0,0,0,0,1,0,Buffer preparation area
+16,PassingBuffer,-6.0,8.0,buffer,Near-A,0,0,0,0,1,0,Passing / waiting pocket above A
+17,MaterialBuffer,14.0,50.6,buffer,CAD-2#warehouse-zone,0,0,0,0,1,0,Material buffer left of G5 and above G3
+18,W1_Storage,18.0,71.6,warehouse_slot,Near-B,0,0,1,0,0,0,Warehouse storage slot
+19,W2_Storage,42.0,71.6,warehouse_slot,Near-B,0,0,1,0,0,0,Warehouse storage slot
