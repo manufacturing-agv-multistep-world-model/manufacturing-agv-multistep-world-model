@@ -30,7 +30,7 @@ The claim-to-file mapping is frozen in `AUTHORITATIVE_EVIDENCE_MAP.md`. Primary 
 | Equal-parameter physics factorial | `experiment_results/v11_physics_factorial_arrival_v4_independent_v2/` |
 | Unseen-trajectory action ranking | `experiment_results/world_model_counterfactual_v144_ranking_confirmation_v1/` |
 | Agreement-gated shadow evaluation | `experiment_results/world_model_counterfactual_v145_shadow_confirmation_parallel_v2/` |
-| Graph versus parameter-matched flat model boundary | `experiment_results/v150_graph_vs_flat_confirmation_seed17400/` |
+| Graph versus head-budget-matched flat model boundary | `experiment_results/v150_graph_vs_flat_confirmation_seed17400/` |
 | Paired-effect versus absolute-outcome boundary | `experiment_results/v151_paired_vs_absolute_confirmation_seed18400/` |
 | Utility-weight sensitivity | `experiment_results/v151_utility_sensitivity_v1/` |
 | AnyLogic independent validation | `paper_outputs/anylogic_validation/final/` |
@@ -46,7 +46,7 @@ The scripts preserve the experiment sequence used during development. The most r
 | `scripts/121_train_counterfactual_world_model_v141_seeds.ps1` | Train frozen counterfactual action-effect models | Long, GPU recommended |
 | `scripts/124_confirm_counterfactual_ranking_v144.ps1` | Independent action-ranking confirmation | Long, GPU recommended |
 | `scripts/125_confirm_counterfactual_shadow_v145.ps1` | Frozen shadow/advice confirmation | Long |
-| `scripts/133_train_flat_counterfactual_baseline_v150_seeds.ps1` | Train parameter-matched flat baselines | Long, GPU recommended |
+| `scripts/133_train_flat_counterfactual_baseline_v150_seeds.ps1` | Train head-budget-matched flat baselines | Long, GPU recommended |
 | `scripts/135_confirm_v150_architecture_comparison.ps1` | Confirm graph-versus-flat boundary result | Long |
 | `scripts/136_train_absolute_outcome_baseline_v151_seeds.ps1` | Train absolute-outcome comparison | Long, GPU recommended |
 | `scripts/137_confirm_paired_formulation_v151.ps1` | Confirm paired-effect formulation comparison | Long |
@@ -60,9 +60,10 @@ Run `Get-Help` or open a script before execution to confirm its arguments. Outpu
 
 - Environment episodes, not individual decision states, are the resampling unit.
 - Where three initialization seeds are present, errors are averaged across model seeds within each paired evaluation episode before episode-level bootstrap resampling.
+- For the physics factorial composite, Data-only normalization denominators are recomputed inside every bootstrap replicate so denominator uncertainty is propagated.
 - Development runs select designs; confirmation seeds and thresholds remain frozen.
 - Negative confirmation results are retained and reported rather than replaced by favorable seeds.
-- Candidate-ranking claims apply to the frozen feasible candidate-generation protocol, not exhaustive optimization of all joint actions.
+- Candidate-ranking claims apply to the frozen feasible candidate-generation protocol, not exhaustive optimization of all joint actions. In the N6 confirmation, 420 sampled states generated 1,249 candidate-baseline pairs before endpoint screening; 1,225 terminal-valid pairs across 413 states entered ranking analysis.
 
 ## 6. AnyLogic Validation
 

@@ -63,6 +63,80 @@ def bootstrap_delta(
     }
 
 
+def bootstrap_normalized_composite_effect(
+    condition_episode: Dict[Tuple[str, int, int, str], float],
+    episodes: List[int],
+    contrast: str,
+    replicates: int,
+    seed: int,
+) -> Dict[str, float]:
+    """Bootstrap a factorial contrast while propagating denominator uncertainty."""
+
+    def effect(sampled_episodes: List[int]) -> np.ndarray:
+        denominators = {
+            (horizon, metric): float(
+                np.mean(
+                    [
+                        condition_episode[
+                            ("Data-only graph", episode, horizon, metric)
+                        ]
+                        for episode in sampled_episodes
+                    ]
+                )
+            )
+            for horizon in PRIMARY_HORIZONS
+            for metric in METRICS
+        }
+        values = {
+            condition: np.asarray(
+                [
+                    np.mean(
+                        [
+                            condition_episode[(condition, episode, horizon, metric)]
+                            / max(denominators[(horizon, metric)], 1.0e-12)
+                            for horizon in PRIMARY_HORIZONS
+                            for metric in METRICS
+                        ]
+                    )
+                    for episode in sampled_episodes
+                ],
+                dtype=float,
+            )
+            for condition in CONDITIONS
+        }
+        if contrast == "full_minus_data_only":
+            return values["Full"] - values["Data-only graph"]
+        if contrast == "feature_main_effect":
+            return 0.5 * (values["Full"] + values["No physics loss"]) - 0.5 * (
+                values["No physical features"] + values["Data-only graph"]
+            )
+        if contrast == "loss_main_effect":
+            return 0.5 * (values["Full"] + values["No physical features"]) - 0.5 * (
+                values["No physics loss"] + values["Data-only graph"]
+            )
+        if contrast == "interaction":
+            return (values["Full"] - values["No physical features"]) - (
+                values["No physics loss"] - values["Data-only graph"]
+            )
+        raise ValueError(f"Unknown composite contrast: {contrast}")
+
+    point_values = effect(list(episodes))
+    rng = np.random.default_rng(seed)
+    bootstrap_values = np.empty(replicates, dtype=float)
+    for index in range(replicates):
+        sampled_indices = rng.integers(0, len(episodes), size=len(episodes))
+        sampled_episodes = [episodes[int(item)] for item in sampled_indices]
+        bootstrap_values[index] = float(np.mean(effect(sampled_episodes)))
+    return {
+        "delta_mean": float(np.mean(point_values)),
+        "ci_low": float(np.quantile(bootstrap_values, 0.025)),
+        "ci_high": float(np.quantile(bootstrap_values, 0.975)),
+        "probability_nonnegative": float(np.mean(bootstrap_values >= 0.0)),
+        "episode_count": int(len(episodes)),
+        "normalization_denominator_recomputed_per_replicate": True,
+    }
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Audit the V11 physics factorial.")
     parser.add_argument("--evaluation-dir", required=True)
@@ -206,22 +280,37 @@ def main() -> None:
         * (composite["No physics loss"][episode] + composite["Data-only graph"][episode])
         for episode in episodes
     }
+    feature_effect_with_loss = {
+        episode: composite["Full"][episode]
+        - composite["No physical features"][episode]
+        for episode in episodes
+    }
+    feature_effect_without_loss = {
+        episode: composite["No physics loss"][episode]
+        - composite["Data-only graph"][episode]
+        for episode in episodes
+    }
 
     bootstrap_rows = []
     comparisons = [
-        ("Full minus Data-only graph composite", composite["Full"], composite["Data-only graph"]),
-        ("Physical-feature main effect (on minus off)", feature_on, feature_off),
-        ("Physics-loss main effect (on minus off)", loss_on, loss_off),
+        ("Full minus Data-only graph composite", "full_minus_data_only"),
+        ("Physical-feature main effect (on minus off)", "feature_main_effect"),
+        ("Physics-loss main effect (on minus off)", "loss_main_effect"),
+        (
+            "Physical-feature x physics-loss interaction (difference-in-differences)",
+            "interaction",
+        ),
     ]
-    for index, (label, left, right) in enumerate(comparisons):
+    for index, (label, contrast) in enumerate(comparisons):
         bootstrap_rows.append(
             {
                 "comparison": label,
                 "horizon_steps": "5_and_10",
                 "metric": "normalized_composite",
-                **bootstrap_delta(
-                    left,
-                    right,
+                **bootstrap_normalized_composite_effect(
+                    condition_episode,
+                    episodes,
+                    contrast,
                     args.bootstrap_replicates,
                     args.bootstrap_seed + index,
                 ),
@@ -308,6 +397,7 @@ def main() -> None:
     full_vs_data = bootstrap_rows[0]
     feature_effect = bootstrap_rows[1]
     loss_effect = bootstrap_rows[2]
+    interaction_effect = bootstrap_rows[3]
     improved_metrics = sum(
         h10_metric_changes[metric]["delta_mean"] < 0.0 for metric in METRICS
     )
@@ -327,7 +417,7 @@ def main() -> None:
         and {int(row["split_seed"]) for row in checkpoint_rows} == {4200}
     )
     criteria = [
-        ("Protocol integrity and all 12 equal-capacity checkpoints", integrity),
+        ("Protocol integrity and all 12 equal-parameter checkpoints", integrity),
         (
             "Full V11 composite error is lower than Data-only graph with 95% CI below zero",
             float(full_vs_data["ci_high"]) < 0.0,
@@ -406,11 +496,14 @@ def main() -> None:
             f"{float(row['delta_mean']):+.4f} | "
             f"[{float(row['ci_low']):+.4f}, {float(row['ci_high']):+.4f}] |"
         )
-    lines.extend(["", "## Preregistered criteria", ""])
+    lines.extend(["", "## Internally frozen criteria", ""])
     for label, value in criteria:
         lines.append(f"- [{'x' if value else ' '}] {label}")
     lines.extend(
         [
+            "",
+            "The physical-feature x physics-loss interaction is an exploratory "
+            "difference-in-differences analysis and was not part of the internally frozen continuation criteria.",
             "",
             f"Physics-factorial evidence package passed: **{'YES' if passed else 'NO'}**.",
             "",

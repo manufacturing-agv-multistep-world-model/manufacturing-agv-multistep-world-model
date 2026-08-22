@@ -1,8 +1,9 @@
-﻿comparison,horizon_steps,metric,delta_mean,ci_low,ci_high,probability_nonnegative,episode_count,relative_change
-Full minus Data-only graph composite,5_and_10,normalized_composite,-0.0425532957185744,-0.07264882479230236,-0.014219987136022504,0.0014,20,
-Physical-feature main effect (on minus off),5_and_10,normalized_composite,-0.02576782339323347,-0.05717378179978346,0.002126998104159751,0.0364,20,
-Physics-loss main effect (on minus off),5_and_10,normalized_composite,-0.016785472325340944,-0.028855154289117384,-0.005436532236248805,0.0014,20,
-Full minus Data-only graph,10,delta_time_sec,-0.05393076031016915,-0.27700032937564445,0.15062853841653348,0.324,20,-0.010418706367229705
-Full minus Data-only graph,10,delta_energy_wh,-0.08908247770702289,-0.1987399287444819,0.010400150032627476,0.0444,20,-0.0353015222892737
-Full minus Data-only graph,10,blocked_delta,-0.021980421498559322,-0.04494512989947118,-0.0005861426423449089,0.0216,20,-0.042410493867289206
-Full minus Data-only graph,10,position_node_accuracy,0.06898734177215189,0.045427215189873374,0.0920569620253164,1.0,20,
+﻿comparison,horizon_steps,metric,delta_mean,ci_low,ci_high,probability_nonnegative,episode_count,normalization_denominator_recomputed_per_replicate,relative_change
+Full minus Data-only graph composite,5_and_10,normalized_composite,-0.0425532957185744,-0.06969710933659949,-0.01481106077296115,0.0014,20,True,
+Physical-feature main effect (on minus off),5_and_10,normalized_composite,-0.02576782339323347,-0.05488549448477853,0.002155005296798085,0.0366,20,True,
+Physics-loss main effect (on minus off),5_and_10,normalized_composite,-0.016785472325340944,-0.028931665510659905,-0.005448680542270948,0.0014,20,True,
+Physical-feature x physics-loss interaction (difference-in-differences),5_and_10,normalized_composite,0.017955186011920865,-0.011347907744118684,0.0466917891227713,0.884,20,True,
+Full minus Data-only graph,10,delta_time_sec,-0.05393076031016915,-0.27700032937564445,0.15062853841653348,0.324,20,,-0.010418706367229705
+Full minus Data-only graph,10,delta_energy_wh,-0.08908247770702289,-0.1987399287444819,0.010400150032627476,0.0444,20,,-0.0353015222892737
+Full minus Data-only graph,10,blocked_delta,-0.021980421498559322,-0.04494512989947118,-0.0005861426423449089,0.0216,20,,-0.042410493867289206
+Full minus Data-only graph,10,position_node_accuracy,0.06898734177215189,0.045427215189873374,0.0920569620253164,1.0,20,,

@@ -780,7 +780,7 @@ def build_physics_factorial_figure() -> None:
     ax_b.grid(axis="x", color=GRID, linewidth=0.6)
 
     panel_label(ax_a, "a", "Prediction error by factorial condition")
-    panel_label(ax_b, "b", "Paired effects with trajectory-bootstrap 95% CI")
+    panel_label(ax_b, "b", "Paired effects with episode-bootstrap 95% CI")
     fig.tight_layout()
     save_figure(fig, OUTPUT / "figure_4_physics_factorial_evidence")
     plt.close(fig)
@@ -1007,13 +1007,13 @@ def build_architecture_boundary_figure() -> None:
         writer.writerow(["95% CI low", paired["ci_low"], "", ""])
         writer.writerow(["95% CI high", paired["ci_high"], "", ""])
 
-    names = ["Physics-graph", "Matched flat MLP", "DT-aware unchanged"]
+    names = ["Physics-graph", "Head-budget matched flat MLP", "DT-aware unchanged"]
     regrets = [
         audit["graph_ranking"]["model_mean_regret"],
         audit["flat_ranking"]["model_mean_regret"],
         audit["graph_ranking"]["baseline_mean_regret"],
     ]
-    top1_names = ["Physics-graph", "Matched flat MLP", "Random choice"]
+    top1_names = ["Physics-graph", "Head-budget matched flat MLP", "Random choice"]
     top1 = [
         audit["graph_ranking"]["top1_agreement"],
         audit["flat_ranking"]["top1_agreement"],
@@ -1043,7 +1043,7 @@ def build_architecture_boundary_figure() -> None:
 
     ax_b.bar(np.arange(3), np.array(top1) * 100, color=colors, width=0.65)
     ax_b.set_xticks(np.arange(3))
-    ax_b.set_xticklabels(["Physics-\ngraph", "Matched\nflat MLP", "Random\nchoice"])
+    ax_b.set_xticklabels(["Physics-\ngraph", "Head-budget\nmatched MLP", "Random\nchoice"])
     ax_b.set_ylabel("Top-1 agreement (%)")
     ax_b.set_ylim(0, 45)
     for x, value in enumerate(top1):
