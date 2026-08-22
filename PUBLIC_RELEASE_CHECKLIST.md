@@ -9,9 +9,11 @@ This repository is intentionally private during review. Complete every unchecked
 - [x] Local usernames and workstation paths removed from published artifacts
 - [x] Files remain below GitHub's 100 MB per-file limit
 - [x] Automated tests and package audit pass
+- [x] Regenerable development traces and duplicate figure exports removed
+- [x] Public data manifest added
+- [x] Standard citation metadata added
+- [ ] Obtain all-author approval for public release and licensing
 - [ ] Confirm final manuscript DOI and repository citation
-- [ ] Add author-approved `CITATION.cff`
 - [ ] Select and add an open-source license
 - [ ] Review figure and table reuse permissions
 - [ ] Create an immutable archival release after acceptance
-

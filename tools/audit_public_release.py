@@ -10,6 +10,8 @@ TEXT_SUFFIXES = {".py", ".ps1", ".md", ".txt", ".json", ".csv", ".xml", ".alpx",
 REQUIRED_PATHS = (
     "README.md",
     "REPRODUCIBILITY.md",
+    "DATA_MANIFEST.md",
+    "CITATION.cff",
     "AUTHORITATIVE_EVIDENCE_MAP.md",
     "EXPERIMENT_REGISTRY.csv",
     "agv_dt_env.py",

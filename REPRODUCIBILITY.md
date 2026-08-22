@@ -56,6 +56,8 @@ The scripts preserve the experiment sequence used during development. The most r
 
 Run `Get-Help` or open a script before execution to confirm its arguments. Outputs are written under `experiment_results/` or `paper_outputs/` using repository-relative paths.
 
+Large per-decision traces from exploratory boundary runs are intentionally omitted from the curated release because they are regenerable outputs and are not inputs to any confirmatory analysis. Their frozen episode summaries and audit reports remain included. See `DATA_MANIFEST.md` for the complete release boundary.
+
 ## 5. Frozen Statistical Protocol
 
 - Environment episodes, not individual decision states, are the resampling unit.

@@ -37,4 +37,6 @@
 
 ## 输出格式
 
-每张图提供可编辑SVG、PDF、300 dpi PNG和LZW压缩600 dpi TIFF。论文正文优先嵌入PNG或PDF，投稿单图优先提供TIFF或PDF。
+公开复现包为每张图保留可编辑SVG、PDF和300 dpi PNG，并保留绘图源数据。投稿专用的600 dpi TIFF可由同一绘图脚本重新生成，因此不在GitHub中重复存储。
+
+需要生成投稿TIFF时运行：`python tools/build_submission_figures.py --include-tiff`。

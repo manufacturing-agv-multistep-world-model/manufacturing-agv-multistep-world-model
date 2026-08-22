@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software or evidence package, please cite the archived release and the associated article."
+type: software
+title: "Manufacturing AGV Multistep World Model"
+version: "1.0.0-rc1"
+date-released: 2026-08-22
+repository-code: "https://github.com/miaopeiqi/manufacturing-agv-multistep-world-model"
+authors:
+  - family-names: Miao
+    given-names: Peiqi
+  - family-names: Yang
+    given-names: Xiaolei
+  - family-names: Tian
+    given-names: Xinrang
+  - family-names: Cen
+    given-names: Shixin
+  - family-names: Li
+    given-names: Zheng

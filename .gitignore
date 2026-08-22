@@ -11,4 +11,4 @@ Thumbs.db
 *.tmp
 *.bak
 paper_outputs/submission_figures_current/_rendered/
-
+paper_outputs/submission_figures_current/*.tiff

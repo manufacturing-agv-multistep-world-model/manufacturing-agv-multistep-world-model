@@ -35,3 +35,7 @@ This is the recommended middle-complexity scenario for the current paper stage.
 ## Suggested Paper Wording
 
 `The validation layout was abstracted from the plant CAD route. The CAD-derived trunk was preserved, while only necessary functional nodes were added through orthogonal branches to represent production stations, warehouse slots, charging, and waiting buffers. Long straight corridors were not over-discretized; only one intermediate control node was inserted on the longest corridor for occupancy-state observation.`
+
+## Public Release Files
+
+The reusable scenario is defined by the node, edge, task-flow, and configuration files in this directory. Duplicate rendered copies are omitted; the publication-ready scene is available under `paper_outputs/submission_figures_current/figure_2_cad_derived_scene.*`.

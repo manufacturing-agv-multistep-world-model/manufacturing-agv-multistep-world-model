@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 from pathlib import Path
@@ -27,6 +28,7 @@ LIGHT_ORANGE = "#FAF0E5"
 PANEL_BG = "#F7F9FB"
 GRID = "#E5E9ED"
 FULL_WIDTH_IN = 7.48  # Elsevier double-column width: approximately 190 mm.
+INCLUDE_TIFF = False
 
 
 mpl.rcParams.update(
@@ -59,13 +61,14 @@ def save_figure(fig: plt.Figure, stem: Path) -> None:
     fig.savefig(stem.with_suffix(".svg"), bbox_inches="tight", facecolor="white")
     fig.savefig(stem.with_suffix(".pdf"), bbox_inches="tight", facecolor="white")
     fig.savefig(stem.with_suffix(".png"), dpi=300, bbox_inches="tight", facecolor="white")
-    fig.savefig(
-        stem.with_suffix(".tiff"),
-        dpi=600,
-        bbox_inches="tight",
-        facecolor="white",
-        pil_kwargs={"compression": "tiff_lzw"},
-    )
+    if INCLUDE_TIFF:
+        fig.savefig(
+            stem.with_suffix(".tiff"),
+            dpi=600,
+            bbox_inches="tight",
+            facecolor="white",
+            pil_kwargs={"compression": "tiff_lzw"},
+        )
 
 
 def rounded_box(ax, xy, width, height, text, fill, edge=NAVY, fontsize=7, weight="normal"):
@@ -1204,6 +1207,15 @@ def build_anylogic_validation_figure() -> None:
 
 
 def main() -> None:
+    global INCLUDE_TIFF
+    parser = argparse.ArgumentParser(description="Rebuild the curated manuscript figure package.")
+    parser.add_argument(
+        "--include-tiff",
+        action="store_true",
+        help="also create journal-upload 600 dpi LZW TIFF files",
+    )
+    args = parser.parse_args()
+    INCLUDE_TIFF = args.include_tiff
     OUTPUT.mkdir(parents=True, exist_ok=True)
     SOURCE_DATA.mkdir(parents=True, exist_ok=True)
     build_framework_figure()
