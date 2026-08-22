@@ -5,6 +5,7 @@ title: "Manufacturing AGV Multistep World Model"
 version: "1.0.0-rc1"
 date-released: 2026-08-22
 repository-code: "https://github.com/miaopeiqi/manufacturing-agv-multistep-world-model"
+license: MIT
 authors:
   - family-names: Miao
     given-names: Peiqi

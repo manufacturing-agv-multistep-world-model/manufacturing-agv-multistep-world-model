@@ -30,6 +30,7 @@ The repository does **not** claim a real-time bidirectional shop-floor digital t
 | `AGV_DT_AnyLogic_Validation/` | De-identified AnyLogic Professional validation project |
 | `paper_outputs/submission_figures_current/` | Submission figures and figure source data |
 | `DATA_MANIFEST.md` | Included evidence, exclusions, and confidentiality boundaries |
+| `LICENSE_SCOPE.md` | Code/data licensing scope and explicit exclusions |
 | `AUTHORITATIVE_EVIDENCE_MAP.md` | Mapping from manuscript claims to frozen evidence |
 | `EXPERIMENT_REGISTRY.csv` | Experiment status and provenance registry |
 
@@ -68,4 +69,4 @@ The manufacturing topology is an anonymous, geometrically simplified derivative 
 
 ## Release Status
 
-This release candidate has been minimized for public reproducibility, but a reuse license has not yet been assigned. Keep the repository private until all authors approve the code/data license and the release checklist is complete. The frozen public version should be archived with a permanent identifier.
+This release candidate has been minimized for public reproducibility. Repository-authored software is available under the MIT License, while repository-authored data, documentation, and figures are available under CC BY 4.0. Third-party software, AnyLogic runtime components, restricted source CAD material, and excluded materials are not relicensed. See `LICENSE_SCOPE.md` for the precise boundary. Keep the repository private until author approval and the release checklist are complete; the frozen public version should be archived with a permanent identifier.

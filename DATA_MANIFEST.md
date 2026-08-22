@@ -35,4 +35,4 @@ The public topology is a geometrically simplified and de-identified derivative. 
 
 ## Versioning
 
-The manuscript should cite an immutable archived release rather than the moving `main` branch. The archival identifier and final reuse license will be added after author approval.
+The manuscript should cite an immutable archived release rather than the moving `main` branch. Reuse terms are defined in `LICENSE_SCOPE.md`; the archival identifier will be added after the frozen release is deposited.

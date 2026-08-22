@@ -14,6 +14,6 @@ This repository is intentionally private during review. Complete every unchecked
 - [x] Standard citation metadata added
 - [ ] Obtain all-author approval for public release and licensing
 - [ ] Confirm final manuscript DOI and repository citation
-- [ ] Select and add an open-source license
+- [x] MIT code license and CC BY 4.0 data/documentation license added
 - [ ] Review figure and table reuse permissions
 - [ ] Create an immutable archival release after acceptance
