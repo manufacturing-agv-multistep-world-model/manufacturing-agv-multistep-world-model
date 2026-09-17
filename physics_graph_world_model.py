@@ -141,7 +141,11 @@ def charge_start_soc(env: Any) -> float:
 
 
 def baseline_dt_aware_action(env: Any) -> np.ndarray:
-    """A safe industrial policy used for data collection and MPC fallback."""
+    """Rule-based twin dispatch proposal used as the paired reference and fallback.
+
+    The environment and separate safety guard enforce executable constraints;
+    this heuristic is not an optimal scheduler or a learned safety controller.
+    """
 
     actions = np.ones(env.agv_count, dtype=np.int64)
     for i, position in enumerate(env.agv_positions):

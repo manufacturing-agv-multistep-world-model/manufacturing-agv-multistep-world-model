@@ -74,7 +74,7 @@ TRANSITION_SCHEMA_VERSION = "assignment_visible_congestion_independent_arrival_s
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Train an autoregressive physics-informed graph world model."
+        description="Train an autoregressive physics-guided graph world model."
     )
     parser.add_argument("--episodes", type=int, default=MULTISTEP_WORLD_MODEL_DEFAULTS["episodes"])
     parser.add_argument("--max-steps", type=int, default=MULTISTEP_WORLD_MODEL_DEFAULTS["max_steps"])

@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parent
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Train a physics-informed graph world model for AGV digital-twin dispatch."
+        description="Train a physics-guided graph world model for AGV digital-twin dispatch."
     )
     parser.add_argument("--episodes", type=int, default=WORLD_MODEL_DEFAULTS["episodes"])
     parser.add_argument("--max-steps", type=int, default=WORLD_MODEL_DEFAULTS["max_steps"])

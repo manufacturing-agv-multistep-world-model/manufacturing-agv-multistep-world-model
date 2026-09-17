@@ -59,8 +59,8 @@ PARAMETER_REGISTRY: List[ParameterRecord] = [
         0.8,
         "m/s^3",
         "physical_kinematics",
-        "Reserved parameter for a future S-curve extension; it is not active in the reported trapezoidal/triangular kinematics.",
-        "Inactive in the reported experiments; retained only for configuration compatibility.",
+        "Active jerk-related travel-time allowance added to the trapezoidal/triangular base under the default s_curve setting; not a full jerk-limited trajectory integration.",
+        "Representative engineering setting used by the reported Python environment.",
         (),
     ),
     _record(
@@ -96,7 +96,7 @@ PARAMETER_REGISTRY: List[ParameterRecord] = [
         "Wh",
         "energy_model",
         "Nominal battery capacity for a 48V/50Ah-class indoor AGV/AMR used under sustained high-demand logistics.",
-        "Energy-calibrated DT baseline; replace with AGV nameplate data when available.",
+        "Representative 48 V/50 Ah-class engineering baseline; replace with AGV nameplate data when available.",
         (1920.0, 2160.0, 2640.0, 2880.0),
     ),
     _record(
@@ -105,7 +105,7 @@ PARAMETER_REGISTRY: List[ParameterRecord] = [
         "Wh/s",
         "energy_model",
         "Base traction/control energy during motion.",
-        "Calibrated DT coefficient; sensitivity can be bundled into EER analysis.",
+        "Representative engineering coefficient; sensitivity can be bundled into EER analysis.",
         (),
     ),
     _record(
@@ -114,7 +114,7 @@ PARAMETER_REGISTRY: List[ParameterRecord] = [
         "Wh/m",
         "energy_model",
         "Distance-dependent rolling and drivetrain energy coefficient.",
-        "Calibrated DT coefficient; sensitivity can be bundled into EER analysis.",
+        "Representative engineering coefficient; sensitivity can be bundled into EER analysis.",
         (),
     ),
     _record(
@@ -123,7 +123,7 @@ PARAMETER_REGISTRY: List[ParameterRecord] = [
         "Wh/event",
         "energy_model",
         "Start/stop energy penalty for acceleration and route-change maneuvers.",
-        "Calibrated DT coefficient.",
+        "Representative engineering coefficient.",
         (),
     ),
     _record(
@@ -132,7 +132,7 @@ PARAMETER_REGISTRY: List[ParameterRecord] = [
         "Wh/s",
         "energy_model",
         "Controller/standby energy while waiting, charging, or handling.",
-        "Calibrated DT coefficient.",
+        "Representative engineering coefficient.",
         (),
     ),
     _record(

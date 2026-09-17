@@ -1,6 +1,6 @@
 # Manufacturing AGV Multistep World Model
 
-Research code and frozen evidence for a multistep physics-informed graph counterfactual world model for manufacturing-system AGV decision support.
+Research code and frozen evidence for a multistep physics-guided graph counterfactual world model for manufacturing-system AGV decision support.
 
 > **Repository status:** curated public-release candidate. The code, frozen checkpoints, anonymous scenario, confirmatory outputs, and independent AnyLogic validation are included. Restricted factory drawings, identifiable company material, manuscript working files, regenerable development traces, and superseded exploratory runs are intentionally excluded.
 
@@ -14,6 +14,14 @@ The repository studies energy-aware and congestion-aware AGV logistics in an ano
 4. **Independent validation:** AnyLogic checks capacity and congestion trends on the same anonymous network and task-flow assumptions.
 
 The repository does **not** claim a real-time bidirectional shop-floor digital twin, statistically established graph superiority, or confirmed closed-loop production improvement.
+
+Here, **physics-guided** means mechanistic state representation and physics-referenced auxiliary supervision, without explicit differential-equation residual constraints. The offline decision twin uses representative engineering parameters and anonymous topology for controlled decision-consequence evaluation; its values are not presented as site-calibrated factory measurements.
+
+The reported Python environment uses a trapezoidal/triangular travel-time base with an additional `2 * acceleration_mps2 / jerk_mps3` time allowance under its default `s_curve` setting (`jerk_mps3 = 0.8`). This is an engineering approximation, not a fully integrated jerk-limited trajectory.
+
+The **DT-aware action** is a rule-based executable dispatch policy in this environment. It considers task state, battery reserve and charging needs, and local path conflicts. Together with the external safety guard, it serves as a protected fallback and the zero-effect reference for paired regret; it is not an optimal scheduler. The environment also implements `fcfs`, `nearest` (nearest waiting-job origin from each AGV), and `priority` dispatch rules. These are available for future matched comparisons, but this release does not claim that the paper's confirmed counterfactual-ranking results establish superiority over those rules in closed-loop operation.
+
+In paired rollouts, the same simulator snapshot is cloned, the first feasible action differs, and the subsequent DT-aware policy and seeded exogenous arrivals are shared. This is a controlled intervention inside the twin, not an observational causal-effect estimate. Training pairs come from trajectories; train/validation grouping and confirmatory bootstrap resampling use complete trajectories as the statistical unit. Learned recommendations remain advisory until separate safety and fallback checks pass.
 
 The paper uses descriptive stage names rather than engineering version codes. Internal identifiers remain in filenames and frozen result paths solely to preserve exact provenance; see [MODEL_STAGE_CROSSWALK.md](MODEL_STAGE_CROSSWALK.md).
 

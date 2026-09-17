@@ -95,12 +95,14 @@ class ScenarioData:
 class DigitalTwinConfig:
     """Configuration for the CAD-derived AGV digital-twin experiment."""
 
+    # Historical profile identifier retained for compatibility; the published
+    # parameter values are representative engineering settings, not field-fitted data.
     parameter_profile: str = "jms_interpretable_v2_energy_calibrated"
     agv_count: int = 3
     max_steps: int = 2000
     env_variant: str = "full"  # ideal, kinematics, full
     reward_mode: str = "hybrid"  # individual, global, hybrid
-    velocity_profile: str = "s_curve"  # ideal, trapezoid, s_curve
+    velocity_profile: str = "s_curve"  # ideal, trapezoid, s_curve (= base time + 2a/j allowance)
     scenario: str = "steady"  # steady, rush
     dispatch_rule: str = "dt_aware"  # fcfs, nearest, priority, dt_aware
     capacity_mode: str = "stress"  # baseline, stress
