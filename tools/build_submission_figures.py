@@ -461,7 +461,7 @@ def build_detailed_model_figure() -> None:
     rounded_box(ax_b, (0.03, 0.33), 0.14, 0.38, "State S(t)\n+ frozen arrivals", "#F3F5F7", fontsize=6.2, weight="bold")
     pill(ax_b, (0.215, 0.62), 0.12, 0.10, "baseline action  A0", LIGHT_BLUE, edge=BLUE, color=BLUE, fontsize=5.8)
     pill(ax_b, (0.215, 0.32), 0.12, 0.10, "candidate action  Ac", LIGHT_ORANGE, edge=ORANGE, color=ORANGE, fontsize=5.8)
-    rounded_box(ax_b, (0.39, 0.37), 0.20, 0.35, "Frozen V13 backbone\nshared weights, applied twice\n336,748 total parameters", LIGHT_TEAL, fontsize=6.0, weight="bold")
+    rounded_box(ax_b, (0.39, 0.37), 0.20, 0.35, "Frozen future-risk backbone\nshared weights, applied twice\n336,748 total parameters", LIGHT_TEAL, fontsize=6.0, weight="bold")
     ax_b.add_patch(Circle((0.645, 0.545), 0.035, facecolor=NAVY, edgecolor="white", linewidth=0.8))
     ax_b.text(0.645, 0.545, "Δ", color="white", fontsize=8, weight="bold", ha="center", va="center")
     rounded_box(ax_b, (0.705, 0.37), 0.16, 0.35, "Trainable paired head\nshared MLP\n56,457 parameters", LIGHT_ORANGE, fontsize=6.0, weight="bold")
@@ -544,8 +544,8 @@ def build_detailed_model_figure_jms() -> None:
     rounded_box(ax_b, (0.03, 0.30), 0.15, 0.42, "State S(t)\n+ frozen arrivals", "#F3F5F7", fontsize=6.2, weight="bold")
     pill(ax_b, (0.22, 0.63), 0.14, 0.10, "baseline action A0", LIGHT_BLUE, edge=BLUE, color=BLUE, fontsize=5.7)
     pill(ax_b, (0.22, 0.27), 0.14, 0.10, "candidate action Ac", LIGHT_ORANGE, edge=ORANGE, color=ORANGE, fontsize=5.7)
-    rounded_box(ax_b, (0.41, 0.58), 0.19, 0.17, "Frozen V13\nphysics-graph backbone", LIGHT_TEAL, edge=TEAL, fontsize=5.8, weight="bold")
-    rounded_box(ax_b, (0.41, 0.24), 0.19, 0.17, "Frozen V13\nphysics-graph backbone", LIGHT_TEAL, edge=TEAL, fontsize=5.8, weight="bold")
+    rounded_box(ax_b, (0.41, 0.58), 0.19, 0.17, "Frozen future-risk\nphysics-graph backbone", LIGHT_TEAL, edge=TEAL, fontsize=5.8, weight="bold")
+    rounded_box(ax_b, (0.41, 0.24), 0.19, 0.17, "Frozen future-risk\nphysics-graph backbone", LIGHT_TEAL, edge=TEAL, fontsize=5.8, weight="bold")
     ax_b.text(0.505, 0.49, "shared frozen weights | 336,748 parameters", fontsize=5.2, color=TEAL, weight="bold", ha="center")
     rounded_box(ax_b, (0.66, 0.35), 0.13, 0.27, "Paired effect\n(Ac - A0)", LIGHT_ORANGE, edge=ORANGE, fontsize=6.0, weight="bold")
     rounded_box(ax_b, (0.84, 0.34), 0.13, 0.29, "Trainable paired head\nshared MLP\n56,457 parameters", "#F9E8E4", edge=RED, fontsize=5.7, weight="bold")
@@ -1214,13 +1214,23 @@ def main() -> None:
         action="store_true",
         help="also create journal-upload 600 dpi LZW TIFF files",
     )
+    parser.add_argument(
+        "--rebuild-editable-framework",
+        action="store_true",
+        help=(
+            "rebuild programmatic alternatives for Figures 1 and 3; by default the "
+            "manually polished editable-PowerPoint exports are preserved"
+        ),
+    )
     args = parser.parse_args()
     INCLUDE_TIFF = args.include_tiff
     OUTPUT.mkdir(parents=True, exist_ok=True)
     SOURCE_DATA.mkdir(parents=True, exist_ok=True)
-    build_framework_figure()
+    if args.rebuild_editable_framework:
+        build_framework_figure()
     build_cad_scene_figure()
-    build_detailed_model_figure_jms()
+    if args.rebuild_editable_framework:
+        build_detailed_model_figure_jms()
     build_physics_factorial_figure()
     build_decision_evidence_figure()
     build_paired_formulation_figure()

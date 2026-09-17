@@ -17,6 +17,8 @@ REQUIRED_PATHS = (
     "LICENSE_SCOPE.md",
     "AUTHORITATIVE_EVIDENCE_MAP.md",
     "EXPERIMENT_REGISTRY.csv",
+    "FROZEN_WEIGHTING_PROTOCOL.md",
+    "MODEL_STAGE_CROSSWALK.md",
     "agv_dt_env.py",
     "physics_graph_world_model_multistep_v11.py",
     "physics_graph_world_model_counterfactual_v141.py",
@@ -59,6 +61,20 @@ def main() -> int:
     for relative in REQUIRED_PATHS:
         if not (ROOT / relative).exists():
             failures.append(f"Missing required path: {relative}")
+
+    registry = (ROOT / "jms_parameter_registry.py").read_text(encoding="utf-8")
+    multistep_block = registry.split("MULTISTEP_WORLD_MODEL_DEFAULTS", 1)[-1]
+    if '"physics_weight": 0.50' not in multistep_block:
+        failures.append("Formal multistep physics_weight is not frozen at 0.50")
+
+    model_source = (ROOT / "physics_graph_world_model_multistep_v10.py").read_text(encoding="utf-8")
+    if "KPI_COMPONENT_WEIGHTS = (0.5, 8.0, 32.0, 2.0, 2.0, 2.0)" not in model_source:
+        failures.append("Formal KPI component-weight vector has drifted")
+
+    weighting_protocol = (ROOT / "FROZEN_WEIGHTING_PROTOCOL.md").read_text(encoding="utf-8")
+    for required_text in ("(0.5, 8, 32, 2, 2, 2)", "(8, 32, 2)", "0.50", "0.15"):
+        if required_text not in weighting_protocol:
+            failures.append(f"Weighting protocol is missing frozen value: {required_text}")
 
     for path in ROOT.rglob("*"):
         if not path.is_file() or ignored_parts.intersection(path.parts):

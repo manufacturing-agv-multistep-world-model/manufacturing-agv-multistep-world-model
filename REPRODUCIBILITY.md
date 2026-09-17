@@ -58,6 +58,8 @@ Run `Get-Help` or open a script before execution to confirm its arguments. Outpu
 
 Large per-decision traces from exploratory boundary runs are intentionally omitted from the curated release because they are regenerable outputs and are not inputs to any confirmatory analysis. Their frozen episode summaries and audit reports remain included. See `DATA_MANIFEST.md` for the complete release boundary.
 
+The exact loss, temporal, utility, and authority-gate weights used by the final evidence chain are listed in `FROZEN_WEIGHTING_PROTOCOL.md`. The formal multistep physics factorial uses an auxiliary physics-loss coefficient of `0.50`; the `0.35` value under `WORLD_MODEL_DEFAULTS` belongs only to the superseded one-step baseline.
+
 ## 5. Frozen Statistical Protocol
 
 - Environment episodes, not individual decision states, are the resampling unit.
@@ -65,7 +67,7 @@ Large per-decision traces from exploratory boundary runs are intentionally omitt
 - For the physics factorial composite, Data-only normalization denominators are recomputed inside every bootstrap replicate so denominator uncertainty is propagated.
 - Development runs select designs; confirmation seeds and thresholds remain frozen.
 - Negative confirmation results are retained and reported rather than replaced by favorable seeds.
-- Candidate-ranking claims apply to the frozen feasible candidate-generation protocol, not exhaustive optimization of all joint actions. In the N6 confirmation, 420 sampled states generated 1,249 candidate-baseline pairs before endpoint screening; 1,225 terminal-valid pairs across 413 states entered ranking analysis.
+- Candidate-ranking claims apply to the frozen feasible candidate-generation protocol, not exhaustive optimization of all joint actions. In the action-ranking confirmation (internal identifier `N6`), 420 sampled states generated 1,249 candidate-baseline pairs before endpoint screening; 1,225 terminal-valid pairs across 413 states entered ranking analysis.
 
 ## 6. AnyLogic Validation
 

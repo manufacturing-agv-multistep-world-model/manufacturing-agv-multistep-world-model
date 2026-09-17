@@ -15,6 +15,8 @@ The repository studies energy-aware and congestion-aware AGV logistics in an ano
 
 The repository does **not** claim a real-time bidirectional shop-floor digital twin, statistically established graph superiority, or confirmed closed-loop production improvement.
 
+The paper uses descriptive stage names rather than engineering version codes. Internal identifiers remain in filenames and frozen result paths solely to preserve exact provenance; see [MODEL_STAGE_CROSSWALK.md](MODEL_STAGE_CROSSWALK.md).
+
 ## Repository Layout
 
 | Path | Contents |
@@ -33,6 +35,8 @@ The repository does **not** claim a real-time bidirectional shop-floor digital t
 | `LICENSE_SCOPE.md` | Code/data licensing scope and explicit exclusions |
 | `AUTHORITATIVE_EVIDENCE_MAP.md` | Mapping from manuscript claims to frozen evidence |
 | `EXPERIMENT_REGISTRY.csv` | Experiment status and provenance registry |
+| `MODEL_STAGE_CROSSWALK.md` | Descriptive paper terminology mapped to immutable internal identifiers |
+| `FROZEN_WEIGHTING_PROTOCOL.md` | Frozen loss, temporal, utility, and authority-gate weights |
 
 ## Quick Start
 
@@ -56,7 +60,8 @@ Start with [REPRODUCIBILITY.md](REPRODUCIBILITY.md). The main frozen evidence is
 # Verify the curated package before using it
 python .\tools\audit_public_release.py
 
-# Rebuild submission figures from frozen source data
+# Rebuild analytical submission figures from frozen source data.
+# The polished editable-PowerPoint exports for Figures 1 and 3 are preserved.
 python .\tools\build_submission_figures.py
 
 # Reanalyze the independent AnyLogic validation export
@@ -69,4 +74,4 @@ The manufacturing topology is an anonymous, geometrically simplified derivative 
 
 ## Release Status
 
-This release candidate has been minimized for public reproducibility. Repository-authored software is available under the MIT License, while repository-authored data, documentation, and figures are available under CC BY 4.0. Third-party software, AnyLogic runtime components, restricted source CAD material, and excluded materials are not relicensed. See `LICENSE_SCOPE.md` for the precise boundary. Keep the repository private until author approval and the release checklist are complete; the frozen public version should be archived with a permanent identifier.
+This publicly accessible release candidate has been minimized for reproducibility. Repository-authored software is available under the MIT License, while repository-authored data, documentation, and figures are available under CC BY 4.0. Third-party software, AnyLogic runtime components, restricted source CAD material, and excluded materials are not relicensed. See `LICENSE_SCOPE.md` for the precise boundary. The authors should document the remaining release checks before creating an immutable archive with a permanent identifier.

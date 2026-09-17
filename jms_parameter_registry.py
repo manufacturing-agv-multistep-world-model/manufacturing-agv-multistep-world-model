@@ -327,6 +327,8 @@ GRAPH_MAPPO_DEFAULTS: Dict[str, Any] = {
 }
 
 
+# Historical one-step baseline defaults. These are retained for legacy runs and
+# are not the settings used by the formal multistep physics factorial.
 WORLD_MODEL_DEFAULTS: Dict[str, Any] = {
     "episodes": 40,
     "max_steps": 400,
@@ -345,7 +347,8 @@ MULTISTEP_WORLD_MODEL_DEFAULTS: Dict[str, Any] = {
     "batch_size": 256,
     "learning_rate": 3e-4,
     "weight_decay": 1e-4,
-    "physics_weight": 0.35,
+    # Frozen auxiliary-loss coefficient used by the formal multistep factorial.
+    "physics_weight": 0.50,
     "rollout_discount": 0.90,
     "training_horizon": 5,
     "sequence_stride": 1,
