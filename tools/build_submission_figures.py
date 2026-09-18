@@ -1190,7 +1190,7 @@ def build_anylogic_validation_figure() -> None:
         "Throughput across physical horizons",
         "Waiting-time growth under load",
         "End-of-horizon backlog",
-        "Cross-platform throughput agreement",
+        "Cross-platform throughput trend consistency",
     )
     for label, axis, title in zip("abcd", axes, titles):
         panel_label(axis, label, title)
